@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>NTIC Solution | L'univers du digital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,6 +14,10 @@
             --ntic-orange: #ff6b35;
             --ntic-light-blue: #e9f0f8;
             --ntic-dark: #333333;
+            --ntic-success: #4CAF50;
+            --ntic-warning: #FF9800;
+            --ntic-error: #F44336;
+            --ntic-info: #2196F3;
         }
 
         /* Reset & Base */
@@ -21,10 +25,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
@@ -33,6 +39,8 @@
             color: var(--ntic-dark);
             background-color: var(--ntic-white);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
@@ -54,11 +62,11 @@
         }
 
         h1 {
-            font-size: 3.2rem;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             text-align: center;
             position: relative;
             padding-bottom: 15px;
@@ -76,12 +84,12 @@
         }
 
         h3 {
-            font-size: 1.8rem;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
         }
 
         p {
             margin-bottom: 15px;
-            font-size: 1.05rem;
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
         }
 
         .btn {
@@ -96,12 +104,18 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(255, 107, 53, 0.2);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            width: auto;
         }
 
         .btn:hover {
             background-color: #e05a2b;
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
         }
 
         .btn-outline {
@@ -122,15 +136,16 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-            padding: 18px 0;
+            padding: 15px 0;
             transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         header.scrolled {
-            padding: 12px 0;
-            background-color: rgba(255, 255, 255, 0.98);
+            padding: 10px 0;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
@@ -152,7 +167,7 @@
         }
 
         .logo-img {
-            height: 60px;
+            height: 50px;
             width: auto;
             margin-right: 12px;
             transition: all 0.3s ease;
@@ -216,13 +231,14 @@
             color: var(--ntic-blue);
             cursor: pointer;
             transition: transform 0.3s ease;
+            padding: 5px;
         }
 
         .mobile-menu-btn:hover {
             transform: rotate(90deg);
         }
 
-        /* Hero Section avec animation */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -237,16 +253,6 @@
             overflow: hidden;
         }
 
-        .hero:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(to top, var(--ntic-white), transparent);
-        }
-
         .hero-content {
             position: relative;
             z-index: 2;
@@ -257,17 +263,15 @@
 
         .hero h1 {
             color: var(--ntic-white);
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
             margin-bottom: 20px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            animation: textGlow 3s ease-in-out infinite alternate;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             margin-bottom: 35px;
             opacity: 0.9;
-            animation: fadeIn 2s ease-out;
         }
 
         .hero-btns {
@@ -275,46 +279,11 @@
             justify-content: center;
             gap: 20px;
             margin-top: 30px;
+            flex-wrap: wrap;
         }
 
-        .floating-elements {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .floating-element {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
-        .floating-element:nth-child(1) {
-            width: 60px;
-            height: 60px;
-            top: 20%;
-            left: 10%;
-            animation: float 6s ease-in-out infinite, pulse 2s infinite;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 40px;
-            height: 40px;
-            top: 60%;
-            right: 15%;
-            animation: float 8s ease-in-out infinite reverse, pulse 3s infinite;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
-            left: 20%;
-            animation: float 10s ease-in-out infinite, pulse 4s infinite;
+        .hero-btns .btn {
+            min-width: 200px;
         }
 
         /* Services Section */
@@ -324,20 +293,9 @@
             overflow: hidden;
         }
 
-        .services:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,107,53,0.05) 0%, transparent 70%);
-            z-index: 0;
-        }
-
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
             gap: 30px;
             margin-top: 50px;
             position: relative;
@@ -354,28 +312,10 @@
             position: relative;
             overflow: hidden;
             border-top: 4px solid transparent;
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
-        .service-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,107,53,0.05), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-
-        .service-card:hover:before {
-            transform: translateX(100%);
         }
 
         .service-card:hover {
-            transform: translateY(-15px) rotateX(5deg);
+            transform: translateY(-15px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             border-top: 4px solid var(--ntic-orange);
         }
@@ -392,40 +332,18 @@
             font-size: 2.2rem;
             color: var(--ntic-blue);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-icon:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--ntic-blue), var(--ntic-orange));
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
         .service-card:hover .service-icon {
-            transform: scale(1.1) rotateY(180deg);
-        }
-
-        .service-card:hover .service-icon:before {
-            opacity: 0.1;
-        }
-
-        .service-icon i {
-            position: relative;
-            z-index: 1;
+            transform: scale(1.1);
+            background-color: var(--ntic-orange);
+            color: var(--ntic-white);
         }
 
         .service-btn {
             margin-top: 20px;
             padding: 10px 25px;
             font-size: 0.9rem;
-            animation: pulseBtn 2s infinite;
         }
 
         /* Equipe Section */
@@ -433,56 +351,24 @@
             position: relative;
         }
 
-        .team:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(26,58,108,0.1) 0%, transparent 70%);
-            z-index: 0;
-        }
-
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
             gap: 30px;
             margin-top: 50px;
-            position: relative;
-            z-index: 1;
         }
 
         .team-card {
             text-align: center;
             background-color: var(--ntic-white);
             border-radius: 12px;
-            padding: 25px;
+            padding: 30px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--ntic-blue), var(--ntic-orange));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .team-card:hover:before {
-            transform: scaleX(1);
         }
 
         .team-card:hover {
-            transform: translateY(-10px) scale(1.03);
+            transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
@@ -498,38 +384,12 @@
             color: var(--ntic-white);
             font-size: 2.8rem;
             font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-card:hover .team-avatar {
-            transform: rotateY(180deg);
-            background: linear-gradient(135deg, var(--ntic-orange), var(--ntic-blue));
         }
 
         .team-specialty {
             color: var(--ntic-orange);
             font-weight: 500;
             margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .team-specialty:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background-color: var(--ntic-orange);
-            transition: width 0.3s ease;
-        }
-
-        .team-card:hover .team-specialty:after {
-            width: 100%;
         }
 
         /* Localisation Maps */
@@ -540,19 +400,19 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             height: 400px;
             position: relative;
-            animation: fadeUp 1s ease-out;
         }
 
         .map-overlay {
             position: absolute;
             top: 20px;
             left: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             z-index: 1;
             max-width: 300px;
+            width: calc(100% - 40px);
         }
 
         /* Contact Section */
@@ -561,43 +421,30 @@
             position: relative;
         }
 
-        .contact:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,107,53,0.1) 0%, transparent 70%);
-            z-index: 0;
-        }
-
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 40px;
             margin-top: 50px;
-            position: relative;
-            z-index: 1;
         }
 
-        .contact-info {
+        @media (min-width: 768px) {
+            .contact-container {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        .contact-info, .contact-form {
             background-color: var(--ntic-white);
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            animation: slideInLeft 1s ease-out;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
             margin-bottom: 30px;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateX(10px);
         }
 
         .contact-icon {
@@ -612,17 +459,6 @@
             color: var(--ntic-blue);
             font-size: 1.4rem;
             flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover .contact-icon {
-            background-color: var(--ntic-orange);
-            color: var(--ntic-white);
-            transform: rotate(15deg);
-        }
-
-        .contact-details h4 {
-            margin-bottom: 5px;
         }
 
         .social-links {
@@ -643,43 +479,14 @@
             font-size: 1.3rem;
             text-decoration: none;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-link:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--ntic-orange);
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .social-link:hover:before {
-            transform: translateY(0);
-        }
-
-        .social-link i {
-            position: relative;
-            z-index: 1;
         }
 
         .social-link:hover {
             transform: translateY(-5px);
+            background-color: var(--ntic-orange);
         }
 
-        .contact-form {
-            background-color: var(--ntic-white);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            animation: slideInRight 1s ease-out;
-        }
-
+        /* Formulaires optimisés pour mobile */
         .form-group {
             margin-bottom: 25px;
             position: relative;
@@ -690,18 +497,20 @@
             margin-bottom: 8px;
             color: var(--ntic-blue);
             font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             border: 1px solid #ddd;
-            border-radius: 6px;
+            border-radius: 8px;
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             transition: all 0.3s ease;
             background-color: transparent;
+            -webkit-appearance: none;
+            appearance: none;
         }
 
         .form-control:focus {
@@ -710,42 +519,105 @@
             box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
         }
 
-        .form-group:focus-within label {
-            color: var(--ntic-orange);
+        select.form-control {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B3FA5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 16px;
+            padding-right: 50px;
         }
 
-        /* Modal Publicités */
-        .modal-overlay {
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Modales de notification */
+        .notification-overlay {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 3000;
             align-items: center;
             justify-content: center;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.3s ease;
+            padding: 20px;
         }
 
-        .modal-overlay.active {
+        .notification-overlay.active {
             display: flex;
         }
 
-        .modal-content {
+        .notification-modal {
             background-color: var(--ntic-white);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 40px;
             max-width: 500px;
-            width: 90%;
-            text-align: center;
+            width: 100%;
             position: relative;
-            animation: modalAppear 0.5s ease-out;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: modalSlideUp 0.3s ease-out;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
-        .modal-close {
+        .notification-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .notification-icon.success {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--ntic-success);
+        }
+
+        .notification-icon.error {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: var(--ntic-error);
+        }
+
+        .notification-icon.warning {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: var(--ntic-warning);
+        }
+
+        .notification-icon.info {
+            background-color: rgba(33, 150, 243, 0.1);
+            color: var(--ntic-info);
+        }
+
+        .notification-title {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: var(--ntic-blue);
+        }
+
+        .notification-message {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--ntic-dark);
+            line-height: 1.6;
+        }
+
+        .notification-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .notification-close {
             position: absolute;
             top: 15px;
             right: 15px;
@@ -754,35 +626,78 @@
             font-size: 1.5rem;
             color: var(--ntic-dark);
             cursor: pointer;
-            transition: color 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
         }
 
-        .modal-close:hover {
+        .notification-close:hover {
+            background-color: rgba(0, 0, 0, 0.05);
             color: var(--ntic-orange);
         }
 
-        .modal-content h3 {
-            color: var(--ntic-blue);
-            margin-bottom: 15px;
-        }
-
-        .modal-content .btn {
-            margin-top: 20px;
-        }
-
-        .modal-timer {
-            height: 5px;
-            background-color: var(--ntic-light-blue);
-            border-radius: 5px;
-            margin-top: 20px;
-            overflow: hidden;
-        }
-
-        .modal-timer-bar {
-            height: 100%;
-            background-color: var(--ntic-orange);
+        /* Modal d'inscription */
+        .register-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            animation: timerBar 30s linear forwards;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2001;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s ease;
+            padding: 20px;
+        }
+
+        .register-modal.active {
+            display: flex;
+        }
+
+        .register-modal-content {
+            background-color: var(--ntic-white);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            animation: modalAppear 0.3s ease-out;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .register-modal h3 {
+            color: var(--ntic-blue);
+            margin-bottom: 20px;
+        }
+
+        .register-modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .register-modal-buttons .btn {
+            min-width: 140px;
+        }
+
+        .register-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            color: #666;
         }
 
         /* Footer */
@@ -794,23 +709,11 @@
             overflow: hidden;
         }
 
-        footer:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(circle at 20% 80%, rgba(255,107,53,0.1) 0%, transparent 50%);
-        }
-
         .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
         }
 
         .footer-logo .logo-text {
@@ -845,26 +748,6 @@
 
         .footer-links ul li, .footer-services ul li {
             margin-bottom: 12px;
-            position: relative;
-            padding-left: 0;
-            transition: padding-left 0.3s ease;
-        }
-
-        .footer-links ul li:hover, .footer-services ul li:hover {
-            padding-left: 10px;
-        }
-
-        .footer-links ul li:before, .footer-services ul li:before {
-            content: '›';
-            position: absolute;
-            left: 0;
-            color: var(--ntic-orange);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .footer-links ul li:hover:before, .footer-services ul li:hover:before {
-            opacity: 1;
         }
 
         .footer-links ul li a, .footer-services ul li a {
@@ -883,8 +766,153 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.95rem;
+        }
+
+        /* Chargement */
+        .loading-spinner {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 4000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading-spinner.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--ntic-light-blue);
+            border-top-color: var(--ntic-orange);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Toast notifications */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            max-width: 350px;
+            width: calc(100% - 40px);
+        }
+
+        .toast {
+            background-color: var(--ntic-white);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            animation: toastSlideIn 0.3s ease-out;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .toast-icon.success {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--ntic-success);
+        }
+
+        .toast-icon.error {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: var(--ntic-error);
+        }
+
+        .toast-content {
+            flex: 1;
+        }
+
+        .toast-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--ntic-blue);
+        }
+
+        .toast-message {
+            font-size: 0.9rem;
+            color: var(--ntic-dark);
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        /* Modal Publicités */
+        .ad-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .ad-modal.active {
+            display: flex;
+        }
+
+        .ad-modal-content {
+            background-color: var(--ntic-white);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
             position: relative;
-            z-index: 1;
+            animation: modalAppear 0.5s ease-out;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .ad-modal-timer {
+            height: 5px;
+            background-color: var(--ntic-light-blue);
+            border-radius: 5px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .ad-modal-timer-bar {
+            height: 100%;
+            background-color: var(--ntic-orange);
+            width: 100%;
+            animation: timerBar 30s linear forwards;
         }
 
         /* Animations */
@@ -904,72 +932,40 @@
             to { opacity: 1; }
         }
 
-        @keyframes float {
-            0%, 100% {
+        @keyframes modalSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
                 transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2);
-            }
-            50% {
-                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-            }
-        }
-
-        @keyframes pulseBtn {
-            0%, 100% {
-                box-shadow: 0 4px 8px rgba(255, 107, 53, 0.2);
-            }
-            50% {
-                box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
-            }
-        }
-
-        @keyframes textGlow {
-            0% {
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-            }
-            100% {
-                text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 107, 53, 0.4);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
             }
         }
 
         @keyframes modalAppear {
             from {
                 opacity: 0;
-                transform: scale(0.8) translateY(-50px);
+                transform: scale(0.9);
             }
             to {
                 opacity: 1;
-                transform: scale(1) translateY(0);
+                transform: scale(1);
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes toastSlideIn {
+            from {
+                transform: translateX(400px);
+            }
+            to {
+                transform: translateX(0);
             }
         }
 
@@ -987,18 +983,14 @@
             }
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 992px) {
-            h1 {
-                font-size: 2.8rem;
+            section {
+                padding: 70px 0;
             }
-
-            h2 {
-                font-size: 2.2rem;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
+            
+            .contact-container {
+                gap: 30px;
             }
         }
 
@@ -1009,7 +1001,7 @@
 
             nav {
                 position: fixed;
-                top: 80px;
+                top: 70px;
                 left: -100%;
                 width: 100%;
                 background-color: var(--ntic-white);
@@ -1028,19 +1020,22 @@
             }
 
             nav ul li {
-                margin: 0 0 20px 0;
+                margin: 0 0 15px 0;
+            }
+
+            nav ul li a {
+                font-size: 1.1rem;
+                display: block;
+                padding: 10px 0;
             }
 
             .mobile-menu-btn {
                 display: block;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
+            .hero {
+                min-height: 90vh;
+                padding-top: 70px;
             }
 
             .hero-btns {
@@ -1049,14 +1044,14 @@
                 gap: 15px;
             }
 
-            .btn {
+            .hero-btns .btn {
                 width: 100%;
-                max-width: 250px;
-                text-align: center;
+                max-width: 300px;
             }
 
             .services-grid, .team-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .map-overlay {
@@ -1067,34 +1062,174 @@
                 max-width: 100%;
             }
 
-            section {
-                padding: 60px 0;
-            }
-        }
-
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 2.3rem;
-            }
-
-            h2 {
-                font-size: 1.9rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
+            .map-container {
+                height: 300px;
             }
 
             .contact-info, .contact-form {
-                padding: 30px 25px;
+                padding: 30px;
+            }
+
+            .form-control {
+                padding: 14px;
             }
 
             .footer-container {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
-            .modal-content {
-                padding: 30px 20px;
+            .notification-modal {
+                padding: 30px;
+            }
+
+            .register-modal-content {
+                padding: 30px;
+            }
+
+            .register-modal-buttons {
+                flex-direction: column;
+            }
+
+            .register-modal-buttons .btn {
+                width: 100%;
+            }
+
+            .ad-modal-content {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                width: 95%;
+                padding: 0 15px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            h2 {
+                padding-bottom: 10px;
+            }
+
+            h2:after {
+                width: 60px;
+                height: 3px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+            }
+
+            .service-card, .team-card {
+                padding: 25px 20px;
+            }
+
+            .contact-info, .contact-form {
+                padding: 25px 20px;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .notification-modal {
+                padding: 25px 20px;
+            }
+
+            .notification-buttons {
+                flex-direction: column;
+            }
+
+            .notification-buttons .btn {
+                width: 100%;
+            }
+
+            .register-modal-content {
+                padding: 25px 20px;
+            }
+
+            .toast-container {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+            }
+
+            .ad-modal-content {
+                padding: 25px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 1rem;
+            }
+
+            .logo-slogan {
+                font-size: 0.75rem;
+            }
+
+            .hero h1 {
+                margin-bottom: 15px;
+            }
+
+            .hero p {
+                margin-bottom: 25px;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .notification-modal {
+                padding: 20px 15px;
+            }
+
+            .register-modal-content {
+                padding: 20px 15px;
+            }
+        }
+
+        /* Support pour les très petits écrans */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                min-height: 120vh;
+            }
+            
+            .notification-modal, .register-modal-content, .ad-modal-content {
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+        }
+
+        /* Support pour les appareils iOS */
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                background-attachment: scroll;
+            }
+            
+            select.form-control {
+                font-size: 16px; /* Empêche le zoom sur iOS */
+            }
+            
+            input, textarea, select {
+                font-size: 16px;
             }
         }
     </style>
@@ -1104,14 +1239,13 @@
     <header id="header">
         <div class="container header-container">
             <a href="#hero" class="logo">
-                <!-- Remplacez "logo.png" par le chemin de votre logo -->
                 <img src="logo.png" alt="NTIC Solution Logo" class="logo-img">
                 <div>
                     <div class="logo-text">NTIC Solution</div>
                     <div class="logo-slogan">L'univers du digital</div>
                 </div>
             </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu mobile">
                 <i class="fas fa-bars"></i>
             </button>
             <nav id="mainNav">
@@ -1129,14 +1263,9 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="floating-elements">
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-        </div>
         <div class="container">
             <div class="hero-content">
-                <h1>Votre Partenaire Digital </h1>
+                <h1>Votre Partenaire Digital</h1>
                 <p>NTIC Solution transforme vos idées en expériences digitales puissantes. Développement web et mobile, marketing digital sur mesure et formations expertes pour propulser votre entreprise.</p>
                 <div class="hero-btns">
                     <a href="#services" class="btn">Découvrir nos services</a>
@@ -1155,11 +1284,10 @@
             <div class="services-grid">
                 <!-- Développement Web -->
                 <div class="service-card">
-                      <h3>Développement Web</h3>
                     <div class="service-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                  
+                    <h3>Développement Web</h3>
                     <p>Création de sites web vitrines, e-commerce et applications web sur mesure, optimisés pour le marché local et international. Technologies modernes (HTML5, CSS3, JavaScript, PHP, WordPress).</p>
                     <a href="#contact" class="btn service-btn">Demander un devis</a>
                 </div>
@@ -1276,7 +1404,8 @@
                     height="100%" 
                     style="border:0;" 
                     allowfullscreen="" 
-                    loading="lazy">
+                    loading="lazy"
+                    title="Carte Google Maps NTIC Solution">
                 </iframe>
             </div>
         </div>
@@ -1356,20 +1485,23 @@
                 <!-- Formulaire de contact -->
                 <div class="contact-form">
                     <h3>Envoyez-nous un message</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">
+                        <i class="fas fa-info-circle"></i> Vous devez vous inscrire gratuitement avant de pouvoir nous contacter.
+                    </p>
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Nom complet *</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <input type="text" id="name" class="form-control" required placeholder="Votre nom complet">
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Adresse email *</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <input type="email" id="email" class="form-control" required placeholder="votre@email.com">
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">Téléphone *</label>
-                            <input type="tel" id="phone" class="form-control" required>
+                            <input type="tel" id="phone" class="form-control" required placeholder="+226 XX XX XX XX">
                         </div>
                         
                         <div class="form-group">
@@ -1398,13 +1530,13 @@
                         
                         <div class="form-group">
                             <label for="message">Message *</label>
-                            <textarea id="message" class="form-control" rows="5" required></textarea>
+                            <textarea id="message" class="form-control" rows="5" required placeholder="Décrivez votre projet en détail..."></textarea>
                         </div>
                         
                         <button type="submit" class="btn" style="width: 100%;">
                             <i class="fab fa-whatsapp"></i> Envoyer via WhatsApp
                         </button>
-                        <p style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: #666;">
+                        <p style="text-align: center; margin-top: 10px; font-size: 0.85rem; color: #666;">
                             Le message sera envoyé à notre WhatsApp professionnel
                         </p>
                     </form>
@@ -1419,7 +1551,6 @@
             <div class="footer-container">
                 <div class="footer-logo">
                     <a href="#hero" class="logo">
-                        <!-- Remplacez "logo.png" par le chemin de votre logo -->
                         <img src="logo.png" alt="NTIC Solution Logo" class="logo-img" style="height: 50px;">
                         <div>
                             <div class="logo-text">NTIC Solution</div>
@@ -1459,34 +1590,115 @@
         </div>
     </footer>
 
-    <!-- Modal Publicités -->
-    <div class="modal-overlay" id="adModal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose">
+    <!-- Modal d'inscription -->
+    <div class="modal-overlay register-modal" id="registerModal">
+        <div class="modal-content register-modal-content">
+            <button class="modal-close notification-close" id="cancelRegister" aria-label="Fermer">
                 <i class="fas fa-times"></i>
             </button>
-            <h3 id="modalTitle">Promotion Spéciale</h3>
-            <p id="modalText">Profitez de notre offre exceptionnelle pour le lancement de votre site web !</p>
-            <div id="modalContent"></div>
-            <div class="modal-timer">
-                <div class="modal-timer-bar" id="modalTimer"></div>
+            <h3>Inscription Requise</h3>
+            <p>Pour nous contacter, veuillez d'abord vous inscrire gratuitement. Cela nous permet de mieux vous servir.</p>
+            
+            <div class="register-info">
+                <i class="fas fa-shield-alt"></i> Vos données sont sécurisées et ne seront pas partagées.
             </div>
-            <a href="#contact" class="btn" id="modalBtn">En savoir plus</a>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="regName">Nom complet *</label>
+                    <input type="text" id="regName" class="form-control" required placeholder="Votre nom complet">
+                </div>
+                
+                <div class="form-group">
+                    <label for="regEmail">Adresse email *</label>
+                    <input type="email" id="regEmail" class="form-control" required placeholder="votre@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="regPhone">Téléphone *</label>
+                    <input type="tel" id="regPhone" class="form-control" required placeholder="+226 XX XX XX XX">
+                </div>
+                
+                <p style="font-size: 0.85rem; color: #666; margin-top: 20px; text-align: left;">
+                    En vous inscrivant, vous acceptez nos conditions d'utilisation et notre politique de confidentialité.
+                </p>
+                
+                <div class="register-modal-buttons">
+                    <button type="button" class="btn btn-outline" id="cancelRegisterBtn">Annuler</button>
+                    <button type="submit" class="btn">S'inscrire maintenant</button>
+                </div>
+            </form>
         </div>
     </div>
 
+    <!-- Modal de notification -->
+    <div class="notification-overlay" id="notificationModal">
+        <div class="notification-modal">
+            <button class="notification-close" id="notificationClose" aria-label="Fermer">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="notification-icon" id="notificationIcon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <h3 class="notification-title" id="notificationTitle">Notification</h3>
+            <p class="notification-message" id="notificationMessage">Message de notification</p>
+            <div class="notification-buttons">
+                <button class="btn" id="notificationOk">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Publicités -->
+    <div class="modal-overlay ad-modal" id="adModal">
+        <div class="modal-content ad-modal-content">
+            <button class="modal-close notification-close" id="adModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 id="adModalTitle">Promotion Spéciale</h3>
+            <p id="adModalText">Profitez de notre offre exceptionnelle pour le lancement de votre site web !</p>
+            <div id="adModalContent"></div>
+            <div class="ad-modal-timer">
+                <div class="ad-modal-timer-bar" id="adModalTimer"></div>
+            </div>
+            <a href="#contact" class="btn" id="adModalBtn">En savoir plus</a>
+        </div>
+    </div>
+
+    <!-- Conteneur pour les toast notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Indicateur de chargement -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+
     <script>
-        // Navigation mobile
+        // Configuration
+        const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwS7SQpJjbLAZBAJKBhTi7c_gCcyKPkfOAevpUk6oQuWSe6lU2yHiQ0eHLHq1f-UkLP3Q/exec';
+        
+        // Éléments DOM
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
-        
+        const header = document.getElementById('header');
+        const contactForm = document.getElementById('contactForm');
+        const registerForm = document.getElementById('registerForm');
+        const registerModal = document.getElementById('registerModal');
+        const notificationModal = document.getElementById('notificationModal');
+        const notificationClose = document.getElementById('notificationClose');
+        const notificationOk = document.getElementById('notificationOk');
+        const adModal = document.getElementById('adModal');
+        const adModalClose = document.getElementById('adModalClose');
+        const toastContainer = document.getElementById('toastContainer');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+
+        // Navigation mobile
         mobileMenuBtn.addEventListener('click', () => {
             mainNav.classList.toggle('active');
             mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
         });
-        
+
         // Fermer le menu mobile en cliquant sur un lien
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
@@ -1494,10 +1706,8 @@
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
-        
+
         // Header scroll effect
-        const header = document.getElementById('header');
-        
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
@@ -1505,30 +1715,342 @@
                 header.classList.remove('scrolled');
             }
         });
-        
-        // Animation au défilement
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observer les cartes de services et d'équipe
-        document.querySelectorAll('.service-card, .team-card, .contact-item').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(card);
+
+        // Afficher/cacher l'indicateur de chargement
+        function showLoading() {
+            loadingSpinner.classList.add('active');
+        }
+
+        function hideLoading() {
+            loadingSpinner.classList.remove('active');
+        }
+
+        // Fonction pour afficher une notification modale
+        function showNotification(title, message, type = 'info') {
+            const icon = document.getElementById('notificationIcon');
+            const titleEl = document.getElementById('notificationTitle');
+            const messageEl = document.getElementById('notificationMessage');
+            
+            // Définir l'icône et la couleur selon le type
+            const icons = {
+                success: { icon: 'fas fa-check-circle', color: 'success' },
+                error: { icon: 'fas fa-exclamation-circle', color: 'error' },
+                warning: { icon: 'fas fa-exclamation-triangle', color: 'warning' },
+                info: { icon: 'fas fa-info-circle', color: 'info' }
+            };
+            
+            const config = icons[type] || icons.info;
+            
+            icon.innerHTML = `<i class="${config.icon}"></i>`;
+            icon.className = `notification-icon ${config.color}`;
+            titleEl.textContent = title;
+            messageEl.textContent = message;
+            
+            notificationModal.classList.add('active');
+        }
+
+        // Fermer la notification modale
+        notificationClose.addEventListener('click', () => {
+            notificationModal.classList.remove('active');
         });
-        
+
+        notificationOk.addEventListener('click', () => {
+            notificationModal.classList.remove('active');
+        });
+
+        // Fermer la notification en cliquant en dehors
+        notificationModal.addEventListener('click', (e) => {
+            if (e.target === notificationModal) {
+                notificationModal.classList.remove('active');
+            }
+        });
+
+        // Fonction pour afficher un toast notification
+        function showToast(title, message, type = 'info', duration = 5000) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            
+            const icons = {
+                success: { icon: 'fas fa-check-circle', color: 'success' },
+                error: { icon: 'fas fa-exclamation-circle', color: 'error' },
+                warning: { icon: 'fas fa-exclamation-triangle', color: 'warning' },
+                info: { icon: 'fas fa-info-circle', color: 'info' }
+            };
+            
+            const config = icons[type] || icons.info;
+            
+            toast.innerHTML = `
+                <div class="toast-icon ${config.color}">
+                    <i class="${config.icon}"></i>
+                </div>
+                <div class="toast-content">
+                    <div class="toast-title">${title}</div>
+                    <div class="toast-message">${message}</div>
+                </div>
+                <button class="toast-close" aria-label="Fermer">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            toastContainer.appendChild(toast);
+            
+            // Animation d'entrée
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+            
+            // Fermer le toast
+            const closeBtn = toast.querySelector('.toast-close');
+            closeBtn.addEventListener('click', () => {
+                closeToast(toast);
+            });
+            
+            // Fermeture automatique
+            if (duration > 0) {
+                setTimeout(() => {
+                    closeToast(toast);
+                }, duration);
+            }
+            
+            return toast;
+        }
+
+        function closeToast(toast) {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 300);
+        }
+
+        // Fonction pour afficher/masquer la modale d'inscription
+        function showRegisterModal() {
+            const email = document.getElementById('email').value;
+            if (email) {
+                document.getElementById('regEmail').value = email;
+            }
+            
+            registerModal.style.display = 'flex';
+            setTimeout(() => {
+                registerModal.classList.add('active');
+            }, 10);
+        }
+
+        function hideRegisterModal() {
+            registerModal.classList.remove('active');
+            setTimeout(() => {
+                registerModal.style.display = 'none';
+            }, 300);
+        }
+
+        // Vérifier l'inscription avant d'envoyer le formulaire
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !phone || !service || !message) {
+                showNotification('Champs requis', 'Veuillez remplir tous les champs obligatoires (*).', 'warning');
+                return;
+            }
+
+            // Validation de l'email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Email invalide', 'Veuillez entrer une adresse email valide.', 'warning');
+                return;
+            }
+
+            // Validation du téléphone
+            const phoneRegex = /^(\+226|226)?\s?[0-9]{2}\s?[0-9]{2}\s?[0-9]{2}\s?[0-9]{2}$/;
+            const cleanPhone = phone.replace(/\s/g, '');
+            if (!phoneRegex.test(cleanPhone)) {
+                showNotification('Téléphone invalide', 'Veuillez entrer un numéro de téléphone valide.', 'warning');
+                return;
+            }
+
+            showLoading();
+            
+            try {
+                const response = await fetch(APP_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        action: 'checkUser',
+                        email: email
+                    })
+                });
+                
+                const result = await response.json();
+                hideLoading();
+                
+                if (result.isRegistered) {
+                    submitWhatsAppForm();
+                } else {
+                    // Pré-remplir le formulaire d'inscription
+                    document.getElementById('regName').value = name;
+                    document.getElementById('regEmail').value = email;
+                    document.getElementById('regPhone').value = phone;
+                    
+                    showRegisterModal();
+                }
+            } catch (error) {
+                hideLoading();
+                console.error('Erreur:', error);
+                showNotification('Erreur de connexion', 'Impossible de vérifier votre inscription. Veuillez réessayer.', 'error');
+            }
+        });
+
+        // Formulaire d'inscription
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('regName').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const phone = document.getElementById('regPhone').value.trim();
+            
+            if (!name || !email || !phone) {
+                showNotification('Champs requis', 'Veuillez remplir tous les champs.', 'warning');
+                return;
+            }
+            
+            showLoading();
+            
+            try {
+                const response = await fetch(APP_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        action: 'register',
+                        name: name,
+                        email: email,
+                        phone: phone
+                    })
+                });
+                
+                const result = await response.json();
+                hideLoading();
+                
+                if (result.success) {
+                    hideRegisterModal();
+                    showToast('Inscription réussie', result.message, 'success');
+                    
+                    // Mettre à jour les champs du formulaire principal
+                    document.getElementById('name').value = name;
+                    document.getElementById('email').value = email;
+                    document.getElementById('phone').value = phone;
+                    
+                    // Soumettre le formulaire WhatsApp
+                    setTimeout(() => {
+                        submitWhatsAppForm();
+                    }, 1500);
+                } else {
+                    showNotification('Erreur d\'inscription', result.message, 'error');
+                }
+            } catch (error) {
+                hideLoading();
+                console.error('Erreur:', error);
+                showNotification('Erreur', 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.', 'error');
+            }
+        });
+
+        // Soumettre le formulaire WhatsApp
+        async function submitWhatsAppForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const service = document.getElementById('service').value;
+            const budget = document.getElementById('budget').value;
+            const message = document.getElementById('message').value.trim();
+            
+            showLoading();
+            
+            try {
+                const response = await fetch(APP_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        action: 'submitContact',
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        service: service,
+                        budget: budget,
+                        message: message
+                    })
+                });
+                
+                const result = await response.json();
+                hideLoading();
+                
+                if (!result.success) {
+                    showNotification('Erreur d\'envoi', result.message, 'error');
+                    return;
+                }
+                
+                // Envoyer le message WhatsApp
+                const serviceNames = {
+                    'web': 'Développement Web',
+                    'mobile': 'Développement Mobile',
+                    'marketing': 'Marketing Digital',
+                    'design': 'Conception Graphique',
+                    'training': 'Formation',
+                    'community': 'Community Management'
+                };
+                
+                const budgetNames = {
+                    '0-500': '0 - 500 000 FCFA',
+                    '500-1000': '500 000 - 1 000 000 FCFA',
+                    '1000-2000': '1 000 000 - 2 000 000 FCFA',
+                    '2000+': 'Plus de 2 000 000 FCFA'
+                };
+                
+                const whatsappMessage = `*Nouveau contact - Utilisateur enregistré*%0A%0A` +
+                                      `*Nom:* ${name}%0A` +
+                                      `*Email:* ${email}%0A` +
+                                      `*Téléphone:* ${phone}%0A` +
+                                      `*Service intéressé:* ${serviceNames[service] || service}%0A` +
+                                      (budget ? `*Budget estimé:* ${budgetNames[budget] || budget}%0A` : '') +
+                                      `*Message:*%0A${message}%0A%0A` +
+                                      `_Message envoyé depuis le site web NTIC Solution_`;
+                
+                const whatsappNumber = '22669696924';
+                
+                // Ouvrir WhatsApp dans un nouvel onglet
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+                window.open(whatsappUrl, '_blank');
+                
+                // Afficher une notification de succès
+                showToast('Message envoyé', 'Votre message a été enregistré. Vous allez être redirigé vers WhatsApp.', 'success');
+                
+                // Réinitialiser les champs du formulaire (sauf les infos personnelles)
+                setTimeout(() => {
+                    document.getElementById('service').value = '';
+                    document.getElementById('budget').value = '';
+                    document.getElementById('message').value = '';
+                }, 1000);
+                
+            } catch (error) {
+                hideLoading();
+                console.error('Erreur:', error);
+                showToast('Erreur', 'Impossible d\'envoyer le message. Veuillez réessayer.', 'error');
+            }
+        }
+
+        // Fermer la modale d'inscription
+        document.querySelectorAll('.modal-close, #cancelRegister, #cancelRegisterBtn').forEach(btn => {
+            btn.addEventListener('click', hideRegisterModal);
+        });
+
+        // Fermer la modale d'inscription en cliquant en dehors
+        registerModal.addEventListener('click', (e) => {
+            if (e.target === registerModal) {
+                hideRegisterModal();
+            }
+        });
+
         // Données pour les publicités modales
         const advertisements = [
             {
@@ -1552,55 +2074,48 @@
         ];
         
         // Gestion des modales publicitaires
-        const adModal = document.getElementById('adModal');
-        const modalClose = document.getElementById('modalClose');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalText = document.getElementById('modalText');
-        const modalContent = document.getElementById('modalContent');
-        const modalBtn = document.getElementById('modalBtn');
-        const modalTimer = document.getElementById('modalTimer');
-        
         let currentAdIndex = 0;
-        let modalTimerInterval;
+        let adTimerInterval;
         
         function showAdvertisement(index) {
             const ad = advertisements[index];
-            modalTitle.textContent = ad.title;
-            modalText.textContent = ad.text;
-            modalContent.innerHTML = ad.content;
-            modalBtn.textContent = ad.btnText;
+            document.getElementById('adModalTitle').textContent = ad.title;
+            document.getElementById('adModalText').textContent = ad.text;
+            document.getElementById('adModalContent').innerHTML = ad.content;
+            document.getElementById('adModalBtn').textContent = ad.btnText;
             
             // Réinitialiser le timer
-            modalTimer.style.animation = 'none';
-            void modalTimer.offsetWidth; // Déclencher un reflow
-            modalTimer.style.animation = 'timerBar 30s linear forwards';
+            const timerBar = document.getElementById('adModalTimer');
+            timerBar.style.animation = 'none';
+            void timerBar.offsetWidth;
+            timerBar.style.animation = 'timerBar 30s linear forwards';
             
             // Afficher la modale
             adModal.classList.add('active');
             
             // Démarrer le timer pour fermeture automatique
-            clearInterval(modalTimerInterval);
-            modalTimerInterval = setTimeout(() => {
+            clearInterval(adTimerInterval);
+            adTimerInterval = setTimeout(() => {
                 adModal.classList.remove('active');
                 // Passer à la pub suivante après un délai
                 setTimeout(() => {
                     currentAdIndex = (currentAdIndex + 1) % advertisements.length;
                     showAdvertisement(currentAdIndex);
-                }, 30000); // 30 secondes entre chaque pub
-            }, 30000); // 30 secondes d'affichage
+                }, 30000);
+            }, 30000);
         }
         
-        // Fermer la modale
-        modalClose.addEventListener('click', () => {
+        // Fermer la modale publicitaire
+        adModalClose.addEventListener('click', () => {
             adModal.classList.remove('active');
-            clearInterval(modalTimerInterval);
+            clearInterval(adTimerInterval);
         });
         
         // Fermer en cliquant en dehors
         adModal.addEventListener('click', (e) => {
             if (e.target === adModal) {
                 adModal.classList.remove('active');
-                clearInterval(modalTimerInterval);
+                clearInterval(adTimerInterval);
             }
         });
         
@@ -1608,81 +2123,66 @@
         setTimeout(() => {
             showAdvertisement(currentAdIndex);
         }, 30000);
-        
-        // Formulaire WhatsApp
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+
+        // Sauvegarder l'email dans le localStorage
+        window.addEventListener('load', () => {
+            const savedEmail = localStorage.getItem('ntic_email');
+            if (savedEmail) {
+                document.getElementById('email').value = savedEmail;
+            }
             
-            // Récupérer les valeurs du formulaire
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const budget = document.getElementById('budget').value;
-            const message = document.getElementById('message').value;
-            
-            // Mapper les valeurs des services
-            const serviceNames = {
-                'web': 'Développement Web',
-                'mobile': 'Développement Mobile',
-                'marketing': 'Marketing Digital',
-                'design': 'Conception Graphique',
-                'training': 'Formation',
-                'community': 'Community Management'
-            };
-            
-            // Mapper les budgets
-            const budgetNames = {
-                '0-500': '0 - 500 000 FCFA',
-                '500-1000': '500 000 - 1 000 000 FCFA',
-                '1000-2000': '1 000 000 - 2 000 000 FCFA',
-                '2000+': 'Plus de 2 000 000 FCFA'
-            };
-            
-            // Construire le message pour WhatsApp
-            const whatsappMessage = `*Nouveau contact depuis le site NTIC Solution*%0A%0A` +
-                                  `*Nom:* ${name}%0A` +
-                                  `*Email:* ${email}%0A` +
-                                  `*Téléphone:* ${phone}%0A` +
-                                  `*Service intéressé:* ${serviceNames[service] || service}%0A` +
-                                  (budget ? `*Budget estimé:* ${budgetNames[budget] || budget}%0A` : '') +
-                                  `*Message:*%0A${message}%0A%0A` +
-                                  `_Message envoyé depuis le site web NTIC Solution_`;
-            
-            // Numéro WhatsApp (remplacez par votre numéro)
-            const whatsappNumber = '22669696924';
-            
-            // Ouvrir WhatsApp avec le message pré-rempli
-            window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
-            
-            // Réinitialiser le formulaire
-            contactForm.reset();
-            
-            // Afficher un message de confirmation
-            alert('Merci ! Vous allez être redirigé vers WhatsApp pour envoyer votre message. Si la fenêtre ne s\'ouvre pas, envoyez votre message au +226 69 69 69 24.');
-        });
-        
-        // Animation de survol pour les boutons de service
-        document.querySelectorAll('.service-btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.animation = 'bounce 0.5s ease';
-            });
-            
-            btn.addEventListener('animationend', function() {
-                this.style.animation = '';
+            document.getElementById('email').addEventListener('change', function() {
+                localStorage.setItem('ntic_email', this.value);
             });
         });
-        
-        // Effet de parallaxe sur la section hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+
+        // Fermer les modales avec la touche Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                hideRegisterModal();
+                notificationModal.classList.remove('active');
+                adModal.classList.remove('active');
+                clearInterval(adTimerInterval);
             }
         });
+
+        // Optimisation pour les appareils mobiles
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        
+        // Empêcher le zoom sur les champs de formulaire sur iOS
+        document.addEventListener('touchmove', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Animation au défilement
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observer les éléments pour les animations
+        document.querySelectorAll('.service-card, .team-card, .contact-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+
+        // Démarrer avec un toast de bienvenue
+        setTimeout(() => {
+            showToast('Bienvenue sur NTIC Solution', 'Découvrez nos services digitaux adaptés à vos besoins', 'info', 4000);
+        }, 2000);
     </script>
 </body>
 </html>
