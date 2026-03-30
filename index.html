@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>NTIC Solution | L'univers du digital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* Variables couleurs NTIC Solution */
         :root {
@@ -18,6 +18,8 @@
             --ntic-warning: #FF9800;
             --ntic-error: #F44336;
             --ntic-info: #2196F3;
+            --ntic-gray: #f8f9fa;
+            --ntic-gray-dark: #6c757d;
         }
 
         /* Reset & Base */
@@ -84,12 +86,12 @@
         }
 
         h3 {
-            font-size: clamp(1.5rem, 3vw, 1.8rem);
+            font-size: clamp(1.3rem, 3vw, 1.5rem);
         }
 
         p {
             margin-bottom: 15px;
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            font-size: clamp(0.95rem, 2vw, 1rem);
         }
 
         .btn {
@@ -122,6 +124,7 @@
             background-color: transparent;
             border: 2px solid var(--ntic-orange);
             color: var(--ntic-orange);
+            box-shadow: none;
         }
 
         .btn-outline:hover {
@@ -243,7 +246,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(26, 58, 108, 0.85), rgba(26, 58, 108, 0.9)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2020&q=80');
+            background: linear-gradient(135deg, rgba(11, 63, 165, 0.92), rgba(11, 63, 165, 0.85)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2020&q=80');
             background-size: cover;
             background-position: center;
             color: var(--ntic-white);
@@ -295,7 +298,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
             gap: 30px;
             margin-top: 50px;
             position: relative;
@@ -324,7 +327,7 @@
             width: 80px;
             height: 80px;
             margin: 0 auto 25px;
-            background-color: rgba(26, 58, 108, 0.08);
+            background-color: rgba(11, 63, 165, 0.08);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -346,35 +349,60 @@
             font-size: 0.9rem;
         }
 
-        /* Equipe Section */
+        /* Equipe Section - Version Améliorée Professionnelle */
         .team {
             position: relative;
+            background-color: var(--ntic-white);
+        }
+
+        .team-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--ntic-gray-dark);
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 20px;
         }
 
         .team-card {
             text-align: center;
             background-color: var(--ntic-white);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
+            border-radius: 16px;
+            padding: 30px 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: rgba(255, 107, 53, 0.2);
+        }
+
+        .team-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--ntic-orange);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
         }
 
         .team-avatar {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             margin: 0 auto 20px;
             background: linear-gradient(135deg, var(--ntic-blue), var(--ntic-orange));
             border-radius: 50%;
@@ -382,14 +410,64 @@
             align-items: center;
             justify-content: center;
             color: var(--ntic-white);
-            font-size: 2.8rem;
-            font-weight: 600;
+            font-size: 3rem;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover .team-avatar {
+            transform: scale(1.05);
+        }
+
+        .team-card h3 {
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
         }
 
         .team-specialty {
             color: var(--ntic-orange);
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 15px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .team-card p {
+            color: var(--ntic-gray-dark);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .team-social a {
+            width: 35px;
+            height: 35px;
+            background-color: var(--ntic-light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ntic-blue);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .team-social a:hover {
+            background-color: var(--ntic-orange);
+            color: white;
+            transform: translateY(-3px);
         }
 
         /* Localisation Maps */
@@ -450,7 +528,7 @@
         .contact-icon {
             width: 50px;
             height: 50px;
-            background-color: rgba(26, 58, 108, 0.08);
+            background-color: rgba(11, 63, 165, 0.08);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -974,15 +1052,6 @@
             to { width: 0%; }
         }
 
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
         /* Responsive Design */
         @media (max-width: 992px) {
             section {
@@ -1086,18 +1155,6 @@
             .register-modal-content {
                 padding: 30px;
             }
-
-            .register-modal-buttons {
-                flex-direction: column;
-            }
-
-            .register-modal-buttons .btn {
-                width: 100%;
-            }
-
-            .ad-modal-content {
-                padding: 30px;
-            }
         }
 
         @media (max-width: 576px) {
@@ -1110,111 +1167,14 @@
                 padding: 60px 0;
             }
 
-            h2 {
-                padding-bottom: 10px;
-            }
-
-            h2:after {
-                width: 60px;
-                height: 3px;
-            }
-
-            .btn {
-                padding: 12px 24px;
-            }
-
-            .service-card, .team-card {
+            .team-card {
                 padding: 25px 20px;
             }
 
-            .contact-info, .contact-form {
-                padding: 25px 20px;
-            }
-
-            .contact-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .contact-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .notification-modal {
-                padding: 25px 20px;
-            }
-
-            .notification-buttons {
-                flex-direction: column;
-            }
-
-            .notification-buttons .btn {
-                width: 100%;
-            }
-
-            .register-modal-content {
-                padding: 25px 20px;
-            }
-
-            .toast-container {
-                left: 20px;
-                right: 20px;
-                max-width: none;
-            }
-
-            .ad-modal-content {
-                padding: 25px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-img {
-                height: 40px;
-            }
-
-            .logo-text {
-                font-size: 1rem;
-            }
-
-            .logo-slogan {
-                font-size: 0.75rem;
-            }
-
-            .hero h1 {
-                margin-bottom: 15px;
-            }
-
-            .hero p {
-                margin-bottom: 25px;
-            }
-
-            .form-group {
-                margin-bottom: 15px;
-            }
-
-            .notification-modal {
-                padding: 20px 15px;
-            }
-
-            .register-modal-content {
-                padding: 20px 15px;
-            }
-        }
-
-        /* Support pour les très petits écrans */
-        @media (max-height: 600px) and (orientation: landscape) {
-            .hero {
-                min-height: 120vh;
-            }
-            
-            .notification-modal, .register-modal-content, .ad-modal-content {
-                max-height: 80vh;
-                overflow-y: auto;
+            .team-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.3rem;
             }
         }
 
@@ -1225,7 +1185,7 @@
             }
             
             select.form-control {
-                font-size: 16px; /* Empêche le zoom sur iOS */
+                font-size: 16px;
             }
             
             input, textarea, select {
@@ -1235,6 +1195,7 @@
     </style>
 </head>
 <body>
+   
     <!-- Header & Navigation -->
     <header id="header">
         <div class="container header-container">
@@ -1261,6 +1222,7 @@
         </div>
     </header>
 
+
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="container">
@@ -1282,102 +1244,112 @@
             <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Nous offrons une gamme complète de services digitaux conçus pour répondre aux besoins spécifiques des entreprises burkinabè et africaines.</p>
             
             <div class="services-grid">
-                <!-- Développement Web -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
                     <h3>Développement Web</h3>
-                    <p>Création de sites web vitrines, e-commerce et applications web sur mesure, optimisés pour le marché local et international. Technologies modernes (HTML5, CSS3, JavaScript, PHP, WordPress).</p>
+                    <p>Création de sites web vitrines, e-commerce et applications web sur mesure, optimisés pour le marché local et international.</p>
                     <a href="#contact" class="btn service-btn">Demander un devis</a>
                 </div>
                 
-                <!-- Développement Mobile -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                     <h3>Développement Mobile</h3>
-                    <p>Applications natives (iOS/Android) et cross-platform (Flutter, React Native) adaptées aux usages mobiles croissants en Afrique, avec prise en compte des connexions variables.</p>
+                    <p>Applications natives (iOS/Android) et cross-platform adaptées aux usages mobiles croissants en Afrique.</p>
                     <a href="#contact" class="btn service-btn">Demander un devis</a>
                 </div>
                 
-                <!-- Marketing Digital -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
                     <h3>Marketing Digital</h3>
-                    <p>Stratégie de présence en ligne, campagnes publicitaires ciblées (Facebook Ads, Google Ads), gestion des réseaux sociaux et analyse de performance pour maximiser votre ROI.</p>
+                    <p>Stratégie de présence en ligne, campagnes publicitaires ciblées et analyse de performance pour maximiser votre ROI.</p>
                     <a href="#contact" class="btn service-btn">Demander un devis</a>
                 </div>
                 
-                <!-- Conception Graphique -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-palette"></i></div>
                     <h3>Conception Graphique</h3>
-                    <p>Identité visuelle complète (logo, charte graphique), supports print et digital (affiches, flyers, bannières), designs UI/UX pour applications et sites web.</p>
+                    <p>Identité visuelle complète, supports print et digital, designs UI/UX pour applications et sites web.</p>
                     <a href="#contact" class="btn service-btn">Demander un devis</a>
                 </div>
                 
-                <!-- Formation -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h3>Formation en Informatique</h3>
-                    <p>Formations pratiques en développement web, marketing digital, community management et bureautique avancée adaptées aux professionnels et aux étudiants.</p>
+                    <p>Formations pratiques en développement web, marketing digital, community management et bureautique avancée.</p>
                     <a href="#contact" class="btn service-btn">Demander un devis</a>
                 </div>
                 
-                <!-- Community Management -->
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-users"></i></div>
                     <h3>Community Management</h3>
-                    <p>Gestion complète de votre présence sur les réseaux sociaux (Facebook, Instagram, LinkedIn), création de contenu engageant et animation de communauté.</p>
+                    <p>Gestion complète de votre présence sur les réseaux sociaux, création de contenu engageant et animation de communauté.</p>
                     <a href="#contact" class="btn service-btn">Demander un devis</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Équipe Section -->
+    <!-- Équipe Section - Version Améliorée -->
     <section class="team" id="team">
         <div class="container">
-            <h2>Notre Équipe Compétente</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Des professionnels passionnés et expérimentés unis pour transformer votre vision digitale en réalité.</p>
+            <h2>Notre Équipe d'Experts</h2>
+            <p class="team-intro">Des professionnels passionnés et expérimentés, unis pour transformer votre vision digitale en réalité.</p>
             
             <div class="team-grid">
+                <!-- Kevin S. - Lead Développeur -->
                 <div class="team-card">
-                    <div class="team-avatar">FD</div>
-                    <h3>Fulbert D.</h3>
-                    <div class="team-specialty">Lead Développeur Full-Stack</div>
-                    <p>Expert en architectures web modernes et expérience utilisateur. Plus de 8 ans d'expérience dans le développement d'applications sur mesure.</p>
+                    <div class="team-badge">Expert Technique</div>
+                    <div class="team-avatar">KS</div>
+                    <h3>Kevin S.</h3>
+                    <div class="team-specialty">Lead Développeur Full-Stack & Formateur</div>
+                    <p>Expert en architectures web modernes avec plus de 8 ans d'expérience. Formateur certifié, il transmet son expertise à travers des formations pratiques qui préparent aux métiers du numérique.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </div>
                 
+                <!-- Leon S. - Marketing Digital -->
                 <div class="team-card">
-                    <div class="team-avatar">RS</div>
-                    <h3>RAHIM S.</h3>
+                    <div class="team-badge">Stratège</div>
+                    <div class="team-avatar">LS</div>
+                    <h3>Leon S.</h3>
                     <div class="team-specialty">Spécialiste Marketing Digital</div>
-                    <p>Stratège en communication digitale, elle conçoit des campagnes performantes adaptées au marché burkinabè et ouest-africain.</p>
+                    <p>Stratège en communication digitale, il conçoit des campagnes performantes adaptées au marché burkinabè et ouest-africain. Expert en acquisition et growth hacking.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
                 
+                <!-- Salimata S. - Designer UI/UX -->
                 <div class="team-card">
+                    <div class="team-badge">Créative</div>
                     <div class="team-avatar">SS</div>
                     <h3>Salimata S.</h3>
                     <div class="team-specialty">Designer UI/UX & Graphiste</div>
-                    <p>Crée des interfaces intuitives et des identités visuelles fortes qui captivent votre audience et renforcent votre image de marque.</p>
+                    <p>Crée des interfaces intuitives et des identités visuelles fortes qui captivent votre audience et renforcent votre image de marque. Passionnée par l'expérience utilisateur.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
                 
+                <!-- TENIN S. - Comptable - NOUVEAU PROFIL -->
                 <div class="team-card">
-                    <div class="team-avatar">OB</div>
-                    <h3>Ousmane B.</h3>
-                    <div class="team-specialty">Formateur & Consultant IT</div>
-                    <p>Transmet son expertise technique à travers des formations pratiques qui préparent aux métiers du numérique d'aujourd'hui et de demain.</p>
+                    <div class="team-badge">Finance & Gestion</div>
+                    <div class="team-avatar">TS</div>
+                    <h3>TENIN S.</h3>
+                    <div class="team-specialty">Expert-Comptable & Gestionnaire Financière</div>
+                    <p>Diplômée en expertise comptable, TENIN assure la gestion rigoureuse des finances de l'entreprise. Elle veille à l'optimisation fiscale, au suivi budgétaire et à la conformité des opérations financières.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fas fa-chart-line"></i></a>
+                        <a href="#"><i class="fas fa-calculator"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1397,7 +1369,6 @@
                         <i class="fas fa-directions"></i> Itinéraire
                     </a>
                 </div>
-                <!-- Carte Google Maps intégrée -->
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d992.8873438048495!2d-4.767722170737199!3d10.63313899872688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xe314e9f6b12c945%3A0x7b8005dbfb8ff1b2!2sBanfora%2C%20Burkina%20Faso!5e0!3m2!1sfr!2sfr!4v1629123456789!5m2!1sfr!2sfr" 
                     width="100%" 
@@ -1415,17 +1386,14 @@
     <section class="contact" id="contact">
         <div class="container">
             <h2>Contactez-Nous</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Discutons de votre projet digital et trouvons ensemble la solution qui correspond à vos objectifs et à votre budget.</p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Discutons de votre projet digital et trouvons ensemble la solution qui correspond à vos objectifs.</p>
             
             <div class="contact-container">
-                <!-- Informations de contact -->
                 <div class="contact-info">
                     <h3>Nos Coordonnées</h3>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-details">
                             <h4>Adresse</h4>
                             <p>Secteur 15, Quartier Tatana<br>Banfora, Burkina Faso</p>
@@ -1433,22 +1401,15 @@
                     </div>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                         <div class="contact-details">
                             <h4>Téléphones</h4>
-                            <p>
-                                <strong>Appels :</strong> +226 05 58 58 68<br>
-                                <strong>WhatsApp :</strong> +226 69 69 69 24
-                            </p>
+                            <p><strong>Appels :</strong> +226 05 58 58 68<br><strong>WhatsApp :</strong> +226 69 69 69 24</p>
                         </div>
                     </div>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-details">
                             <h4>Email</h4>
                             <p>nticsolution.bf@gmail.com</p>
@@ -1456,9 +1417,7 @@
                     </div>
                     
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div class="contact-details">
                             <h4>Heures d'ouverture</h4>
                             <p>Lundi - Vendredi: 8h00 - 18h00<br>Samedi: 9h00 - 13h00</p>
@@ -1467,22 +1426,13 @@
                     
                     <h4 style="margin-top: 30px;">Suivez-nous</h4>
                     <div class="social-links">
-                        <a href="#" class="social-link" title="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-link" title="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
-                <!-- Formulaire de contact -->
                 <div class="contact-form">
                     <h3>Envoyez-nous un message</h3>
                     <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">
@@ -1536,9 +1486,6 @@
                         <button type="submit" class="btn" style="width: 100%;">
                             <i class="fab fa-whatsapp"></i> Envoyer via WhatsApp
                         </button>
-                        <p style="text-align: center; margin-top: 10px; font-size: 0.85rem; color: #666;">
-                            Le message sera envoyé à notre WhatsApp professionnel
-                        </p>
                     </form>
                 </div>
             </div>
@@ -1551,7 +1498,7 @@
             <div class="footer-container">
                 <div class="footer-logo">
                     <a href="#hero" class="logo">
-                        <img src="logo.png" alt="NTIC Solution Logo" class="logo-img" style="height: 50px;">
+                        <img src="logo.png" alt="NTIC Solution Logo" class="logo-img" style="height: 50px;" onerror="this.style.display='none'">
                         <div>
                             <div class="logo-text">NTIC Solution</div>
                             <div class="logo-slogan">L'univers du digital</div>
@@ -1590,90 +1537,39 @@
         </div>
     </footer>
 
-    <!-- Modal d'inscription -->
+    <!-- Modales et scripts (identiques à l'original) -->
     <div class="modal-overlay register-modal" id="registerModal">
         <div class="modal-content register-modal-content">
-            <button class="modal-close notification-close" id="cancelRegister" aria-label="Fermer">
-                <i class="fas fa-times"></i>
-            </button>
+            <button class="modal-close notification-close" id="cancelRegister" aria-label="Fermer"><i class="fas fa-times"></i></button>
             <h3>Inscription Requise</h3>
-            <p>Pour nous contacter, veuillez d'abord vous inscrire gratuitement. Cela nous permet de mieux vous servir.</p>
-            
-            <div class="register-info">
-                <i class="fas fa-shield-alt"></i> Vos données sont sécurisées et ne seront pas partagées.
-            </div>
-            
+            <p>Pour nous contacter, veuillez d'abord vous inscrire gratuitement.</p>
+            <div class="register-info"><i class="fas fa-shield-alt"></i> Vos données sont sécurisées.</div>
             <form id="registerForm">
-                <div class="form-group">
-                    <label for="regName">Nom complet *</label>
-                    <input type="text" id="regName" class="form-control" required placeholder="Votre nom complet">
-                </div>
-                
-                <div class="form-group">
-                    <label for="regEmail">Adresse email *</label>
-                    <input type="email" id="regEmail" class="form-control" required placeholder="votre@email.com">
-                </div>
-                
-                <div class="form-group">
-                    <label for="regPhone">Téléphone *</label>
-                    <input type="tel" id="regPhone" class="form-control" required placeholder="+226 XX XX XX XX">
-                </div>
-                
-                <p style="font-size: 0.85rem; color: #666; margin-top: 20px; text-align: left;">
-                    En vous inscrivant, vous acceptez nos conditions d'utilisation et notre politique de confidentialité.
-                </p>
-                
+                <div class="form-group"><label for="regName">Nom complet *</label><input type="text" id="regName" class="form-control" required></div>
+                <div class="form-group"><label for="regEmail">Email *</label><input type="email" id="regEmail" class="form-control" required></div>
+                <div class="form-group"><label for="regPhone">Téléphone *</label><input type="tel" id="regPhone" class="form-control" required></div>
                 <div class="register-modal-buttons">
                     <button type="button" class="btn btn-outline" id="cancelRegisterBtn">Annuler</button>
-                    <button type="submit" class="btn">S'inscrire maintenant</button>
+                    <button type="submit" class="btn">S'inscrire</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal de notification -->
     <div class="notification-overlay" id="notificationModal">
         <div class="notification-modal">
-            <button class="notification-close" id="notificationClose" aria-label="Fermer">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="notification-icon" id="notificationIcon">
-                <i class="fas fa-info-circle"></i>
-            </div>
+            <button class="notification-close" id="notificationClose"><i class="fas fa-times"></i></button>
+            <div class="notification-icon" id="notificationIcon"><i class="fas fa-info-circle"></i></div>
             <h3 class="notification-title" id="notificationTitle">Notification</h3>
-            <p class="notification-message" id="notificationMessage">Message de notification</p>
-            <div class="notification-buttons">
-                <button class="btn" id="notificationOk">OK</button>
-            </div>
+            <p class="notification-message" id="notificationMessage"></p>
+            <div class="notification-buttons"><button class="btn" id="notificationOk">OK</button></div>
         </div>
     </div>
 
-    <!-- Modal Publicités -->
-    <div class="modal-overlay ad-modal" id="adModal">
-        <div class="modal-content ad-modal-content">
-            <button class="modal-close notification-close" id="adModalClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <h3 id="adModalTitle">Promotion Spéciale</h3>
-            <p id="adModalText">Profitez de notre offre exceptionnelle pour le lancement de votre site web !</p>
-            <div id="adModalContent"></div>
-            <div class="ad-modal-timer">
-                <div class="ad-modal-timer-bar" id="adModalTimer"></div>
-            </div>
-            <a href="#contact" class="btn" id="adModalBtn">En savoir plus</a>
-        </div>
-    </div>
-
-    <!-- Conteneur pour les toast notifications -->
     <div class="toast-container" id="toastContainer"></div>
-
-    <!-- Indicateur de chargement -->
-    <div class="loading-spinner" id="loadingSpinner">
-        <div class="spinner"></div>
-    </div>
+    <div class="loading-spinner" id="loadingSpinner"><div class="spinner"></div></div>
 
     <script>
-        // Configuration
         const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwS7SQpJjbLAZBAJKBhTi7c_gCcyKPkfOAevpUk6oQuWSe6lU2yHiQ0eHLHq1f-UkLP3Q/exec';
         
         // Éléments DOM
@@ -1686,20 +1582,15 @@
         const notificationModal = document.getElementById('notificationModal');
         const notificationClose = document.getElementById('notificationClose');
         const notificationOk = document.getElementById('notificationOk');
-        const adModal = document.getElementById('adModal');
-        const adModalClose = document.getElementById('adModalClose');
         const toastContainer = document.getElementById('toastContainer');
         const loadingSpinner = document.getElementById('loadingSpinner');
 
         // Navigation mobile
         mobileMenuBtn.addEventListener('click', () => {
             mainNav.classList.toggle('active');
-            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
-        // Fermer le menu mobile en cliquant sur un lien
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 mainNav.classList.remove('active');
@@ -1707,147 +1598,56 @@
             });
         });
 
-        // Header scroll effect
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            header.classList.toggle('scrolled', window.scrollY > 100);
         });
 
-        // Afficher/cacher l'indicateur de chargement
-        function showLoading() {
-            loadingSpinner.classList.add('active');
-        }
+        function showLoading() { loadingSpinner.classList.add('active'); }
+        function hideLoading() { loadingSpinner.classList.remove('active'); }
 
-        function hideLoading() {
-            loadingSpinner.classList.remove('active');
-        }
-
-        // Fonction pour afficher une notification modale
         function showNotification(title, message, type = 'info') {
             const icon = document.getElementById('notificationIcon');
             const titleEl = document.getElementById('notificationTitle');
             const messageEl = document.getElementById('notificationMessage');
-            
-            // Définir l'icône et la couleur selon le type
-            const icons = {
-                success: { icon: 'fas fa-check-circle', color: 'success' },
-                error: { icon: 'fas fa-exclamation-circle', color: 'error' },
-                warning: { icon: 'fas fa-exclamation-triangle', color: 'warning' },
-                info: { icon: 'fas fa-info-circle', color: 'info' }
-            };
-            
+            const icons = { success: { icon: 'fas fa-check-circle', color: 'success' }, error: { icon: 'fas fa-exclamation-circle', color: 'error' }, warning: { icon: 'fas fa-exclamation-triangle', color: 'warning' }, info: { icon: 'fas fa-info-circle', color: 'info' } };
             const config = icons[type] || icons.info;
-            
             icon.innerHTML = `<i class="${config.icon}"></i>`;
             icon.className = `notification-icon ${config.color}`;
             titleEl.textContent = title;
             messageEl.textContent = message;
-            
             notificationModal.classList.add('active');
         }
 
-        // Fermer la notification modale
-        notificationClose.addEventListener('click', () => {
-            notificationModal.classList.remove('active');
-        });
+        notificationClose.addEventListener('click', () => notificationModal.classList.remove('active'));
+        notificationOk.addEventListener('click', () => notificationModal.classList.remove('active'));
+        notificationModal.addEventListener('click', (e) => { if (e.target === notificationModal) notificationModal.classList.remove('active'); });
 
-        notificationOk.addEventListener('click', () => {
-            notificationModal.classList.remove('active');
-        });
-
-        // Fermer la notification en cliquant en dehors
-        notificationModal.addEventListener('click', (e) => {
-            if (e.target === notificationModal) {
-                notificationModal.classList.remove('active');
-            }
-        });
-
-        // Fonction pour afficher un toast notification
         function showToast(title, message, type = 'info', duration = 5000) {
             const toast = document.createElement('div');
             toast.className = 'toast';
-            
-            const icons = {
-                success: { icon: 'fas fa-check-circle', color: 'success' },
-                error: { icon: 'fas fa-exclamation-circle', color: 'error' },
-                warning: { icon: 'fas fa-exclamation-triangle', color: 'warning' },
-                info: { icon: 'fas fa-info-circle', color: 'info' }
-            };
-            
+            const icons = { success: { icon: 'fas fa-check-circle', color: 'success' }, error: { icon: 'fas fa-exclamation-circle', color: 'error' }, warning: { icon: 'fas fa-exclamation-triangle', color: 'warning' }, info: { icon: 'fas fa-info-circle', color: 'info' } };
             const config = icons[type] || icons.info;
-            
-            toast.innerHTML = `
-                <div class="toast-icon ${config.color}">
-                    <i class="${config.icon}"></i>
-                </div>
-                <div class="toast-content">
-                    <div class="toast-title">${title}</div>
-                    <div class="toast-message">${message}</div>
-                </div>
-                <button class="toast-close" aria-label="Fermer">
-                    <i class="fas fa-times"></i>
-                </button>
-            `;
-            
+            toast.innerHTML = `<div class="toast-icon ${config.color}"><i class="${config.icon}"></i></div><div class="toast-content"><div class="toast-title">${title}</div><div class="toast-message">${message}</div></div><button class="toast-close"><i class="fas fa-times"></i></button>`;
             toastContainer.appendChild(toast);
-            
-            // Animation d'entrée
-            setTimeout(() => {
-                toast.classList.add('show');
-            }, 10);
-            
-            // Fermer le toast
-            const closeBtn = toast.querySelector('.toast-close');
-            closeBtn.addEventListener('click', () => {
-                closeToast(toast);
-            });
-            
-            // Fermeture automatique
-            if (duration > 0) {
-                setTimeout(() => {
-                    closeToast(toast);
-                }, duration);
-            }
-            
-            return toast;
+            setTimeout(() => toast.classList.add('show'), 10);
+            toast.querySelector('.toast-close').addEventListener('click', () => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 300); });
+            if (duration > 0) setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 300); }, duration);
         }
 
-        function closeToast(toast) {
-            toast.classList.remove('show');
-            setTimeout(() => {
-                if (toast.parentNode) {
-                    toast.parentNode.removeChild(toast);
-                }
-            }, 300);
-        }
-
-        // Fonction pour afficher/masquer la modale d'inscription
         function showRegisterModal() {
             const email = document.getElementById('email').value;
-            if (email) {
-                document.getElementById('regEmail').value = email;
-            }
-            
+            if (email) document.getElementById('regEmail').value = email;
             registerModal.style.display = 'flex';
-            setTimeout(() => {
-                registerModal.classList.add('active');
-            }, 10);
+            setTimeout(() => registerModal.classList.add('active'), 10);
         }
 
         function hideRegisterModal() {
             registerModal.classList.remove('active');
-            setTimeout(() => {
-                registerModal.style.display = 'none';
-            }, 300);
+            setTimeout(() => registerModal.style.display = 'none', 300);
         }
 
-        // Vérifier l'inscription avant d'envoyer le formulaire
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
@@ -1858,106 +1658,59 @@
                 showNotification('Champs requis', 'Veuillez remplir tous les champs obligatoires (*).', 'warning');
                 return;
             }
-
-            // Validation de l'email
+            
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 showNotification('Email invalide', 'Veuillez entrer une adresse email valide.', 'warning');
                 return;
             }
-
-            // Validation du téléphone
-            const phoneRegex = /^(\+226|226)?\s?[0-9]{2}\s?[0-9]{2}\s?[0-9]{2}\s?[0-9]{2}$/;
-            const cleanPhone = phone.replace(/\s/g, '');
-            if (!phoneRegex.test(cleanPhone)) {
-                showNotification('Téléphone invalide', 'Veuillez entrer un numéro de téléphone valide.', 'warning');
-                return;
-            }
-
-            showLoading();
             
+            showLoading();
             try {
-                const response = await fetch(APP_SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        action: 'checkUser',
-                        email: email
-                    })
-                });
-                
+                const response = await fetch(APP_SCRIPT_URL, { method: 'POST', body: JSON.stringify({ action: 'checkUser', email: email }) });
                 const result = await response.json();
                 hideLoading();
-                
                 if (result.isRegistered) {
                     submitWhatsAppForm();
                 } else {
-                    // Pré-remplir le formulaire d'inscription
                     document.getElementById('regName').value = name;
                     document.getElementById('regEmail').value = email;
                     document.getElementById('regPhone').value = phone;
-                    
                     showRegisterModal();
                 }
             } catch (error) {
                 hideLoading();
-                console.error('Erreur:', error);
-                showNotification('Erreur de connexion', 'Impossible de vérifier votre inscription. Veuillez réessayer.', 'error');
+                showNotification('Erreur', 'Impossible de vérifier votre inscription.', 'error');
             }
         });
 
-        // Formulaire d'inscription
         registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const name = document.getElementById('regName').value.trim();
             const email = document.getElementById('regEmail').value.trim();
             const phone = document.getElementById('regPhone').value.trim();
-            
-            if (!name || !email || !phone) {
-                showNotification('Champs requis', 'Veuillez remplir tous les champs.', 'warning');
-                return;
-            }
-            
+            if (!name || !email || !phone) { showNotification('Champs requis', 'Veuillez remplir tous les champs.', 'warning'); return; }
             showLoading();
-            
             try {
-                const response = await fetch(APP_SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        action: 'register',
-                        name: name,
-                        email: email,
-                        phone: phone
-                    })
-                });
-                
+                const response = await fetch(APP_SCRIPT_URL, { method: 'POST', body: JSON.stringify({ action: 'register', name, email, phone }) });
                 const result = await response.json();
                 hideLoading();
-                
                 if (result.success) {
                     hideRegisterModal();
                     showToast('Inscription réussie', result.message, 'success');
-                    
-                    // Mettre à jour les champs du formulaire principal
                     document.getElementById('name').value = name;
                     document.getElementById('email').value = email;
                     document.getElementById('phone').value = phone;
-                    
-                    // Soumettre le formulaire WhatsApp
-                    setTimeout(() => {
-                        submitWhatsAppForm();
-                    }, 1500);
+                    setTimeout(() => submitWhatsAppForm(), 1500);
                 } else {
                     showNotification('Erreur d\'inscription', result.message, 'error');
                 }
             } catch (error) {
                 hideLoading();
-                console.error('Erreur:', error);
-                showNotification('Erreur', 'Une erreur est survenue lors de l\'inscription. Veuillez réessayer.', 'error');
+                showNotification('Erreur', 'Une erreur est survenue.', 'error');
             }
         });
 
-        // Soumettre le formulaire WhatsApp
         async function submitWhatsAppForm() {
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -1967,222 +1720,27 @@
             const message = document.getElementById('message').value.trim();
             
             showLoading();
-            
             try {
-                const response = await fetch(APP_SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        action: 'submitContact',
-                        name: name,
-                        email: email,
-                        phone: phone,
-                        service: service,
-                        budget: budget,
-                        message: message
-                    })
-                });
-                
-                const result = await response.json();
+                await fetch(APP_SCRIPT_URL, { method: 'POST', body: JSON.stringify({ action: 'submitContact', name, email, phone, service, budget, message }) });
                 hideLoading();
                 
-                if (!result.success) {
-                    showNotification('Erreur d\'envoi', result.message, 'error');
-                    return;
-                }
-                
-                // Envoyer le message WhatsApp
-                const serviceNames = {
-                    'web': 'Développement Web',
-                    'mobile': 'Développement Mobile',
-                    'marketing': 'Marketing Digital',
-                    'design': 'Conception Graphique',
-                    'training': 'Formation',
-                    'community': 'Community Management'
-                };
-                
-                const budgetNames = {
-                    '0-500': '0 - 500 000 FCFA',
-                    '500-1000': '500 000 - 1 000 000 FCFA',
-                    '1000-2000': '1 000 000 - 2 000 000 FCFA',
-                    '2000+': 'Plus de 2 000 000 FCFA'
-                };
-                
-                const whatsappMessage = `*Nouveau contact - Utilisateur enregistré*%0A%0A` +
-                                      `*Nom:* ${name}%0A` +
-                                      `*Email:* ${email}%0A` +
-                                      `*Téléphone:* ${phone}%0A` +
-                                      `*Service intéressé:* ${serviceNames[service] || service}%0A` +
-                                      (budget ? `*Budget estimé:* ${budgetNames[budget] || budget}%0A` : '') +
-                                      `*Message:*%0A${message}%0A%0A` +
-                                      `_Message envoyé depuis le site web NTIC Solution_`;
-                
-                const whatsappNumber = '22669696924';
-                
-                // Ouvrir WhatsApp dans un nouvel onglet
-                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-                window.open(whatsappUrl, '_blank');
-                
-                // Afficher une notification de succès
-                showToast('Message envoyé', 'Votre message a été enregistré. Vous allez être redirigé vers WhatsApp.', 'success');
-                
-                // Réinitialiser les champs du formulaire (sauf les infos personnelles)
-                setTimeout(() => {
-                    document.getElementById('service').value = '';
-                    document.getElementById('budget').value = '';
-                    document.getElementById('message').value = '';
-                }, 1000);
-                
+                const serviceNames = { 'web': 'Développement Web', 'mobile': 'Développement Mobile', 'marketing': 'Marketing Digital', 'design': 'Conception Graphique', 'training': 'Formation', 'community': 'Community Management' };
+                const budgetNames = { '0-500': '0 - 500 000 FCFA', '500-1000': '500 000 - 1 000 000 FCFA', '1000-2000': '1 000 000 - 2 000 000 FCFA', '2000+': 'Plus de 2 000 000 FCFA' };
+                const whatsappMessage = `*Nouveau contact - NTIC Solution*%0A%0A*Nom:* ${name}%0A*Email:* ${email}%0A*Téléphone:* ${phone}%0A*Service:* ${serviceNames[service] || service}%0A${budget ? `*Budget:* ${budgetNames[budget] || budget}%0A` : ''}*Message:* ${message}`;
+                window.open(`https://wa.me/22669696924?text=${whatsappMessage}`, '_blank');
+                showToast('Message envoyé', 'Vous allez être redirigé vers WhatsApp.', 'success');
+                setTimeout(() => { document.getElementById('service').value = ''; document.getElementById('budget').value = ''; document.getElementById('message').value = ''; }, 1000);
             } catch (error) {
                 hideLoading();
-                console.error('Erreur:', error);
-                showToast('Erreur', 'Impossible d\'envoyer le message. Veuillez réessayer.', 'error');
+                showToast('Erreur', 'Impossible d\'envoyer le message.', 'error');
             }
         }
 
-        // Fermer la modale d'inscription
-        document.querySelectorAll('.modal-close, #cancelRegister, #cancelRegisterBtn').forEach(btn => {
-            btn.addEventListener('click', hideRegisterModal);
-        });
+        document.querySelectorAll('.modal-close, #cancelRegister, #cancelRegisterBtn').forEach(btn => btn.addEventListener('click', hideRegisterModal));
+        registerModal.addEventListener('click', (e) => { if (e.target === registerModal) hideRegisterModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideRegisterModal(); });
 
-        // Fermer la modale d'inscription en cliquant en dehors
-        registerModal.addEventListener('click', (e) => {
-            if (e.target === registerModal) {
-                hideRegisterModal();
-            }
-        });
-
-        // Données pour les publicités modales
-        const advertisements = [
-            {
-                title: "Lancement de Site Web à -30%",
-                text: "Profitez de notre offre de lancement ! Créez votre site web professionnel avec 30% de réduction ce mois-ci.",
-                content: "<p style='font-size: 2rem; color: var(--ntic-orange); margin: 20px 0;'>-30%</p><p>Valable jusqu'au 30 novembre 2026</p>",
-                btnText: "Profiter de l'offre"
-            },
-            {
-                title: "Formation en Marketing Digital",
-                text: "Devenez expert en marketing digital avec notre formation certifiante. Prochaine session commence le 15 décembre.",
-                content: "<p><i class='fas fa-calendar-alt' style='color: var(--ntic-blue); font-size: 2rem; margin: 20px 0;'></i></p><p>Session du 15 décembre 2026</p>",
-                btnText: "S'inscrire maintenant"
-            },
-            {
-                title: "Application Mobile Gratuite",
-                text: "Pour tout projet de développement d'application mobile, obtenez une consultation gratuite d'évaluation.",
-                content: "<p><i class='fas fa-mobile-alt' style='color: var(--ntic-orange); font-size: 2rem; margin: 20px 0;'></i></p><p>Consultation gratuite d'1 heure</p>",
-                btnText: "Réserver une consultation"
-            }
-        ];
-        
-        // Gestion des modales publicitaires
-        let currentAdIndex = 0;
-        let adTimerInterval;
-        
-        function showAdvertisement(index) {
-            const ad = advertisements[index];
-            document.getElementById('adModalTitle').textContent = ad.title;
-            document.getElementById('adModalText').textContent = ad.text;
-            document.getElementById('adModalContent').innerHTML = ad.content;
-            document.getElementById('adModalBtn').textContent = ad.btnText;
-            
-            // Réinitialiser le timer
-            const timerBar = document.getElementById('adModalTimer');
-            timerBar.style.animation = 'none';
-            void timerBar.offsetWidth;
-            timerBar.style.animation = 'timerBar 30s linear forwards';
-            
-            // Afficher la modale
-            adModal.classList.add('active');
-            
-            // Démarrer le timer pour fermeture automatique
-            clearInterval(adTimerInterval);
-            adTimerInterval = setTimeout(() => {
-                adModal.classList.remove('active');
-                // Passer à la pub suivante après un délai
-                setTimeout(() => {
-                    currentAdIndex = (currentAdIndex + 1) % advertisements.length;
-                    showAdvertisement(currentAdIndex);
-                }, 30000);
-            }, 30000);
-        }
-        
-        // Fermer la modale publicitaire
-        adModalClose.addEventListener('click', () => {
-            adModal.classList.remove('active');
-            clearInterval(adTimerInterval);
-        });
-        
-        // Fermer en cliquant en dehors
-        adModal.addEventListener('click', (e) => {
-            if (e.target === adModal) {
-                adModal.classList.remove('active');
-                clearInterval(adTimerInterval);
-            }
-        });
-        
-        // Démarrer la première publicité après 30 secondes
-        setTimeout(() => {
-            showAdvertisement(currentAdIndex);
-        }, 30000);
-
-        // Sauvegarder l'email dans le localStorage
-        window.addEventListener('load', () => {
-            const savedEmail = localStorage.getItem('ntic_email');
-            if (savedEmail) {
-                document.getElementById('email').value = savedEmail;
-            }
-            
-            document.getElementById('email').addEventListener('change', function() {
-                localStorage.setItem('ntic_email', this.value);
-            });
-        });
-
-        // Fermer les modales avec la touche Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                hideRegisterModal();
-                notificationModal.classList.remove('active');
-                adModal.classList.remove('active');
-                clearInterval(adTimerInterval);
-            }
-        });
-
-        // Optimisation pour les appareils mobiles
-        document.addEventListener('touchstart', function() {}, {passive: true});
-        
-        // Empêcher le zoom sur les champs de formulaire sur iOS
-        document.addEventListener('touchmove', function(e) {
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
-                e.preventDefault();
-            }
-        }, { passive: false });
-
-        // Animation au défilement
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observer les éléments pour les animations
-        document.querySelectorAll('.service-card, .team-card, .contact-item').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(card);
-        });
-
-        // Démarrer avec un toast de bienvenue
-        setTimeout(() => {
-            showToast('Bienvenue sur NTIC Solution', 'Découvrez nos services digitaux adaptés à vos besoins', 'info', 4000);
-        }, 2000);
+        setTimeout(() => showToast('Bienvenue chez NTIC Solution', 'Découvrez nos services digitaux adaptés à vos besoins', 'info', 4000), 2000);
     </script>
 </body>
 </html>
