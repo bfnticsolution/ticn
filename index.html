@@ -9,14 +9,14 @@
     <meta name="format-detection" content="telephone=yes">
     <meta http-equiv="content-language" content="fr-BF">
 
-    <title>NTIC Solution | Agence Digitale High-Tech à Banfora — Développement Web, Mobile & IA</title>
-    <meta name="description" content="NTIC Solution, agence digitale high-tech à Banfora, Burkina Faso. Développement web, mobile, IA, cybersécurité, marketing digital. Réalisations : CAVOR, Menu QR, Faso24, AfricaBox TV, WariPay, PCode.">
-    <meta name="keywords" content="développement web Banfora, agence digitale Burkina Faso, IA Burkina, cybersécurité Afrique, développement mobile, marketing digital, NTIC Solution, Kevin Sanou, CAVOR or digital, Menu QR, Faso24, AfricaBox TV, WariPay, PCode, formation informatique Banfora">
+    <title>NTIC Solution | Agence High-Tech à Banfora — Développement Web, Mobile, IA & Cybersécurité</title>
+    <meta name="description" content="NTIC Solution, agence high-tech à Banfora, Burkina Faso. Développement web (PHP, Laravel), mobile, IA, cybersécurité. Réalisations : CAVOR, Menu QR, myvivo.online, Faso24, AfricaBox TV, WariPay, PCode.">
+    <meta name="keywords" content="développement web Banfora, Laravel Burkina Faso, agence digitale, IA, cybersécurité, NTIC Solution, Kevin Sanou, CAVOR, Menu QR, myvivo, Faso24">
 
     <meta property="og:locale" content="fr_BF">
     <meta property="og:type" content="website">
     <meta property="og:title" content="NTIC Solution | Agence High-Tech à Banfora, Burkina Faso">
-    <meta property="og:description" content="Développement web, mobile, IA, cybersécurité. 6 projets en production. Découvrez CAVOR, Menu QR, Faso24 et plus.">
+    <meta property="og:description" content="Développement web (PHP, Laravel), mobile, IA, cybersécurité. 7 projets en production.">
     <meta property="og:url" content="https://www.nticsolution.org/">
     <meta property="og:image" content="https://www.nticsolution.org/logo-og.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -49,10 +49,10 @@
 
         h1,h2,h3{font-weight:700;line-height:1.2;color:var(--dark)}
         h1{font-size:clamp(2.2rem,5vw,3.8rem);letter-spacing:-1px}
-        h2{font-size:clamp(1.7rem,3.5vw,2.4rem);text-align:center;margin-bottom:50px}
+        h2{font-size:clamp(1.7rem,3.5vw,2.4rem);text-align:center;margin-bottom:50px;color:var(--blue)}
         h2 span{color:var(--orange);position:relative}
         h2 span::after{content:'';position:absolute;bottom:4px;left:0;width:100%;height:8px;background:var(--orange-light);z-index:-1;border-radius:4px}
-        h3{font-size:clamp(1.1rem,2vw,1.25rem)}
+        h3{font-size:clamp(1.1rem,2vw,1.25rem);color:var(--blue)}
         p{color:var(--gray);margin-bottom:12px;font-size:clamp(.9rem,1.5vw,.95rem)}
 
         .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:var(--orange);color:var(--white);border:none;border-radius:50px;font-weight:600;text-decoration:none;cursor:pointer;transition:var(--transition);font-size:.9rem;white-space:nowrap;box-shadow:0 6px 20px rgba(255,107,53,.25)}
@@ -62,16 +62,14 @@
         .btn-white{background:var(--white);color:var(--blue);box-shadow:0 6px 20px rgba(0,0,0,.1)}
         .btn-white:hover{background:var(--gray-light)}
         .btn-sm{padding:8px 18px;font-size:.8rem;border-radius:30px}
-        .btn-xs{padding:5px 12px;font-size:.7rem;border-radius:20px}
 
-        /* ANIMATIONS */
         .reveal{opacity:0;transition:all .7s ease}
         .reveal.visible{opacity:1}
         .reveal-up{transform:translateY(50px)}.reveal-up.visible{transform:translateY(0)}
         .reveal-left{transform:translateX(-40px)}.reveal-left.visible{transform:translateX(0)}
         .reveal-right{transform:translateX(40px)}.reveal-right.visible{transform:translateX(0)}
         .reveal-scale{transform:scale(.9)}.reveal-scale.visible{transform:scale(1)}
-        .delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}.delay-4{transition-delay:.4s}.delay-5{transition-delay:.5s}.delay-6{transition-delay:.6s}
+        .delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}.delay-4{transition-delay:.4s}.delay-5{transition-delay:.5s}.delay-6{transition-delay:.6s}.delay-7{transition-delay:.7s}
 
         @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
         @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
@@ -85,18 +83,18 @@
         .header-container{display:flex;justify-content:space-between;align-items:center}
         .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
         .logo-img{height:40px}
-        .logo-text{font-size:1.1rem;font-weight:700;color:var(--dark)}
+        .logo-text{font-size:1.1rem;font-weight:700;color:var(--blue)}
         .logo-text span{color:var(--orange)}
-        nav ul{display:flex;list-style:none;gap:28px;align-items:center}
-        nav ul li a{text-decoration:none;color:var(--dark);font-weight:500;font-size:.88rem;transition:color .2s;position:relative}
+        nav ul{display:flex;list-style:none;gap:24px;align-items:center}
+        nav ul li a{text-decoration:none;color:var(--blue);font-weight:500;font-size:.88rem;transition:color .2s}
         nav ul li a:hover{color:var(--orange)}
-        .mobile-menu-btn{display:none;background:none;border:none;font-size:1.5rem;color:var(--dark);cursor:pointer}
+        .mobile-menu-btn{display:none;background:none;border:none;font-size:1.5rem;color:var(--blue);cursor:pointer}
         @media(max-width:900px){
             .mobile-menu-btn{display:block}
             nav{position:fixed;top:62px;left:-100%;width:100%;background:var(--white);padding:20px;transition:left .3s;z-index:999;box-shadow:0 10px 30px rgba(0,0,0,.1)}
             nav.active{left:0}
             nav ul{flex-direction:column;gap:0}
-            nav ul li a{display:block;padding:14px 0;font-size:1rem;border-bottom:1px solid var(--border)}
+            nav ul li a{display:block;padding:14px 0;font-size:1rem;border-bottom:1px solid var(--border);color:var(--blue)}
         }
 
         /* HERO */
@@ -114,8 +112,8 @@
         .hero-stat .lb{font-size:.78rem;opacity:.8;text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
         .hero-scroll{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.5);font-size:1.5rem;animation:float 2s ease-in-out infinite;cursor:pointer}
 
-        /* MARQUEE TECH */
-        .marquee-section{background:var(--dark);padding:20px 0;overflow:hidden;white-space:nowrap}
+        /* MARQUEE */
+        .marquee-section{background:var(--blue-dark);padding:20px 0;overflow:hidden;white-space:nowrap}
         .marquee-content{display:inline-flex;animation:marquee 30s linear infinite;gap:40px}
         .marquee-content span{color:rgba(255,255,255,.6);font-size:.8rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
         .marquee-content span i{color:var(--orange);font-size:.6rem}
@@ -128,37 +126,38 @@
         .service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--orange),var(--blue));transform:scaleX(0);transition:transform .4s ease}
         .service-card:hover::before{transform:scaleX(1)}
         .service-icon{width:56px;height:56px;background:var(--blue-light);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--blue);margin-bottom:20px;transition:var(--transition)}
-        .service-card:hover .service-icon{background:var(--orange);color:var(--white);transform:rotate(-5deg) scale(1.1)}
-        .service-card h3{margin-bottom:8px}
+        .service-card:hover .service-icon{background:var(--blue);color:var(--white);transform:rotate(-5deg) scale(1.1)}
 
         /* RÉALISATIONS */
         .realisations{background:var(--white)}
-        .realisations-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+        .realisations-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
         .project-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border);transition:var(--transition);display:flex;flex-direction:column}
         .project-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
         .project-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;position:relative;overflow:hidden}
         .project-img.cavor{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#F59E0B}
-        .project-img.menuqr{background:linear-gradient(135deg,#FF6B35,#e55a2b);color:#fff}
+        .project-img.menuqr{background:linear-gradient(135deg,var(--orange),var(--orange-dark));color:#fff}
+        .project-img.myvivo{background:linear-gradient(135deg,#DC2626,#991B1B);color:#fff}
         .project-img.faso24{background:linear-gradient(135deg,#0F172A,#1E293B);color:#3B82F6}
         .project-img.africabox{background:linear-gradient(135deg,#7C3AED,#5B21B6);color:#fff}
         .project-img.waripay{background:linear-gradient(135deg,#059669,#047857);color:#fff}
-        .project-img.pcode{background:linear-gradient(135deg,#0B3FA5,#072a6e);color:#fff}
-        .project-img .project-badge{position:absolute;top:12px;right:12px;padding:3px 10px;border-radius:12px;font-size:.65rem;font-weight:700;background:rgba(255,255,255,.2);backdrop-filter:blur(6px);color:#fff;letter-spacing:.5px}
+        .project-img.pcode{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff}
+        .project-badge{position:absolute;top:12px;right:12px;padding:3px 10px;border-radius:12px;font-size:.65rem;font-weight:700;background:rgba(255,255,255,.2);backdrop-filter:blur(6px);color:#fff;letter-spacing:.5px}
         .project-body{padding:20px;flex:1;display:flex;flex-direction:column}
         .project-body h3{font-size:1.1rem;margin-bottom:4px}
         .project-body .project-desc{font-size:.82rem;color:var(--gray);margin-bottom:12px;flex:1}
         .project-tech{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
-        .project-tech span{background:var(--gray-light);color:var(--dark);padding:3px 10px;border-radius:12px;font-size:.68rem;font-weight:600}
-        .project-links{display:flex;gap:8px;flex-wrap:wrap}
+        .project-tech span{background:var(--blue-light);color:var(--blue);padding:3px 10px;border-radius:12px;font-size:.68rem;font-weight:600}
+        .project-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
 
         /* TECH STACK */
-        .tech-stack{background:var(--dark);color:var(--white);text-align:center}
+        .tech-stack{background:var(--blue);color:var(--white);text-align:center}
         .tech-stack h2{color:var(--white)}
+        .tech-stack h2 span{color:var(--orange)}
         .tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:16px;max-width:900px;margin:0 auto}
-        .tech-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:20px 12px;text-align:center;transition:var(--transition);cursor:default}
-        .tech-item:hover{background:rgba(255,107,53,.15);border-color:var(--orange);transform:translateY(-4px)}
+        .tech-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:20px 12px;text-align:center;transition:var(--transition);cursor:default}
+        .tech-item:hover{background:rgba(255,107,53,.2);border-color:var(--orange);transform:translateY(-4px)}
         .tech-item i{font-size:1.8rem;margin-bottom:8px;color:var(--orange)}
-        .tech-item .tech-name{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;opacity:.8}
+        .tech-item .tech-name{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;opacity:.9}
 
         /* ÉQUIPE */
         .team{background:var(--gray-light)}
@@ -170,7 +169,7 @@
         .team-card p{font-size:.82rem}
         .team-social{display:flex;justify-content:center;gap:10px;margin-top:14px}
         .team-social a{width:34px;height:34px;background:var(--blue-light);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--blue);text-decoration:none;transition:var(--transition);font-size:.85rem}
-        .team-social a:hover{background:var(--orange);color:var(--white)}
+        .team-social a:hover{background:var(--blue);color:var(--white)}
 
         /* CONTACT */
         .contact{background:var(--white)}
@@ -183,10 +182,11 @@
         .social-link{width:40px;height:40px;background:var(--blue);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:var(--transition)}
         .social-link:hover{background:var(--orange);transform:translateY(-3px)}
         .form-group{margin-bottom:16px}
-        .form-group label{display:block;margin-bottom:4px;font-weight:600;font-size:.82rem;color:var(--dark)}
-        .form-control{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:.9rem;transition:var(--transition);background:var(--white)}
+        .form-group label{display:block;margin-bottom:4px;font-weight:600;font-size:.82rem;color:var(--blue)}
+        .form-control{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-family:inherit;font-size:.9rem;transition:var(--transition);background:var(--white);color:var(--dark)}
         .form-control:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,107,53,.1)}
         textarea.form-control{min-height:110px;resize:vertical}
+        select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230B3FA5' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
 
         /* MAP */
         .map-section{background:var(--gray-light);padding-top:0}
@@ -194,7 +194,7 @@
         .map-container iframe{width:100%;height:100%;border:0}
 
         /* FOOTER */
-        footer{background:var(--dark);color:var(--white);padding:50px 0 20px}
+        footer{background:var(--blue);color:var(--white);padding:50px 0 20px}
         .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:30px}
         @media(max-width:768px){.footer-grid{grid-template-columns:1fr}}
         .footer-links h3{color:var(--white);font-size:.95rem;margin-bottom:14px}
@@ -202,7 +202,7 @@
         .footer-links ul li{margin-bottom:8px}
         .footer-links ul li a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.82rem;transition:color .2s}
         .footer-links ul li a:hover{color:var(--orange)}
-        .footer-bottom{text-align:center;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);font-size:.75rem;color:rgba(255,255,255,.5)}
+        .footer-bottom{text-align:center;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:.75rem;color:rgba(255,255,255,.5)}
     </style>
 </head>
 <body>
@@ -219,7 +219,7 @@
                 <li><a href="#hero">Accueil</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#realisations">Réalisations</a></li>
-                <li><a href="#tech">Tech</a></li>
+                <li><a href="#tech">Technologies</a></li>
                 <li><a href="#team">Équipe</a></li>
                 <li><a href="#contact" class="btn btn-sm">Devis Gratuit</a></li>
             </ul>
@@ -232,13 +232,13 @@
     <div class="container">
         <div class="hero-content">
             <h1>Nous <span>Codons</span> le Futur de l'Afrique</h1>
-            <p>NTIC Solution conçoit des solutions digitales high-tech : applications web, mobiles, intelligence artificielle et cybersécurité. 6 projets en production utilisés quotidiennement.</p>
+            <p>NTIC Solution conçoit des solutions digitales sur mesure : applications web, mobiles, intelligence artificielle et cybersécurité. <strong>7 projets en production</strong> utilisés quotidiennement au Burkina Faso et en Afrique.</p>
             <div class="hero-btns">
                 <a href="#realisations" class="btn btn-white">Voir nos projets</a>
                 <a href="#contact" class="btn btn-outline" style="border-color:white;color:white;">Nous contacter</a>
             </div>
             <div class="hero-stats">
-                <div class="hero-stat"><div class="nb">6+</div><div class="lb">Projets en Prod</div></div>
+                <div class="hero-stat"><div class="nb">7+</div><div class="lb">Projets en Prod</div></div>
                 <div class="hero-stat"><div class="nb">18k+</div><div class="lb">Lignes de Code</div></div>
                 <div class="hero-stat"><div class="nb">8+</div><div class="lb">Années d'XP</div></div>
                 <div class="hero-stat"><div class="nb">4</div><div class="lb">Experts</div></div>
@@ -248,11 +248,11 @@
     <div class="hero-scroll" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})"><i class="fas fa-chevron-down"></i></div>
 </section>
 
-<!-- MARQUEE TECH -->
+<!-- MARQUEE -->
 <div class="marquee-section">
     <div class="marquee-content">
-        <span><i class="fas fa-circle"></i> PHP 8.3</span><span><i class="fas fa-circle"></i> Python 3.14</span><span><i class="fas fa-circle"></i> JavaScript ES2024</span><span><i class="fas fa-circle"></i> MySQL 8</span><span><i class="fas fa-circle"></i> MariaDB</span><span><i class="fas fa-circle"></i> Docker</span><span><i class="fas fa-circle"></i> Git</span><span><i class="fas fa-circle"></i> REST API</span><span><i class="fas fa-circle"></i> PWA</span><span><i class="fas fa-circle"></i> LiteSpeed</span><span><i class="fas fa-circle"></i> Mistral AI</span><span><i class="fas fa-circle"></i> Groq</span><span><i class="fas fa-circle"></i> Chart.js</span><span><i class="fas fa-circle"></i> FPDF</span><span><i class="fas fa-circle"></i> Nmap</span><span><i class="fas fa-circle"></i> Wireshark</span>
-        <span><i class="fas fa-circle"></i> PHP 8.3</span><span><i class="fas fa-circle"></i> Python 3.14</span><span><i class="fas fa-circle"></i> JavaScript ES2024</span><span><i class="fas fa-circle"></i> MySQL 8</span><span><i class="fas fa-circle"></i> MariaDB</span><span><i class="fas fa-circle"></i> Docker</span><span><i class="fas fa-circle"></i> Git</span><span><i class="fas fa-circle"></i> REST API</span><span><i class="fas fa-circle"></i> PWA</span><span><i class="fas fa-circle"></i> LiteSpeed</span><span><i class="fas fa-circle"></i> Mistral AI</span><span><i class="fas fa-circle"></i> Groq</span><span><i class="fas fa-circle"></i> Chart.js</span><span><i class="fas fa-circle"></i> FPDF</span><span><i class="fas fa-circle"></i> Nmap</span><span><i class="fas fa-circle"></i> Wireshark</span>
+        <span><i class="fas fa-circle"></i> PHP 8.3</span><span><i class="fas fa-circle"></i> Laravel</span><span><i class="fas fa-circle"></i> Python 3.14</span><span><i class="fas fa-circle"></i> JavaScript ES2024</span><span><i class="fas fa-circle"></i> MySQL 8</span><span><i class="fas fa-circle"></i> MariaDB</span><span><i class="fas fa-circle"></i> Docker</span><span><i class="fas fa-circle"></i> Git</span><span><i class="fas fa-circle"></i> REST API</span><span><i class="fas fa-circle"></i> PWA</span><span><i class="fas fa-circle"></i> LiteSpeed</span><span><i class="fas fa-circle"></i> Mistral AI</span><span><i class="fas fa-circle"></i> Groq</span><span><i class="fas fa-circle"></i> Chart.js</span><span><i class="fas fa-circle"></i> FPDF</span><span><i class="fas fa-circle"></i> Nmap</span>
+        <span><i class="fas fa-circle"></i> PHP 8.3</span><span><i class="fas fa-circle"></i> Laravel</span><span><i class="fas fa-circle"></i> Python 3.14</span><span><i class="fas fa-circle"></i> JavaScript ES2024</span><span><i class="fas fa-circle"></i> MySQL 8</span><span><i class="fas fa-circle"></i> MariaDB</span><span><i class="fas fa-circle"></i> Docker</span><span><i class="fas fa-circle"></i> Git</span><span><i class="fas fa-circle"></i> REST API</span><span><i class="fas fa-circle"></i> PWA</span><span><i class="fas fa-circle"></i> LiteSpeed</span><span><i class="fas fa-circle"></i> Mistral AI</span><span><i class="fas fa-circle"></i> Groq</span><span><i class="fas fa-circle"></i> Chart.js</span><span><i class="fas fa-circle"></i> FPDF</span><span><i class="fas fa-circle"></i> Nmap</span>
     </div>
 </div>
 
@@ -263,27 +263,27 @@
         <div class="services-grid">
             <div class="service-card reveal reveal-scale delay-1">
                 <div class="service-icon"><i class="fas fa-code"></i></div>
-                <h3>Développement Web</h3><p>Sites vitrines, e-commerce, SaaS, applications web sur mesure. Stack PHP/MySQL, JavaScript vanilla, PWA.</p>
+                <h3>Développement Web</h3><p>Sites vitrines, e-commerce, SaaS, applications web sur mesure. PHP/Laravel, JavaScript vanilla, APIs REST.</p>
             </div>
             <div class="service-card reveal reveal-scale delay-2">
                 <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-                <h3>Développement Mobile</h3><p>Applications Android natives, cross-platform Flutter, WebView optimisées. Déploiement APK et stores.</p>
+                <h3>Développement Mobile</h3><p>Applications Android natives, cross-platform, WebView. Déploiement APK et stores.</p>
             </div>
             <div class="service-card reveal reveal-scale delay-3">
                 <div class="service-icon"><i class="fas fa-brain"></i></div>
-                <h3>Intelligence Artificielle</h3><p>Chatbots IA (Mistral, Groq, OpenAI), génération de contenu automatique, assistants vocaux, vision par ordinateur.</p>
+                <h3>Intelligence Artificielle</h3><p>Chatbots IA (Mistral, Groq, OpenAI), génération de contenu automatique, assistants vocaux.</p>
             </div>
             <div class="service-card reveal reveal-scale delay-4">
                 <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
-                <h3>Cybersécurité</h3><p>Tests d'intrusion, analyse forensique réseau, sécurisation de serveurs, audits de vulnérabilités, formation sécurité.</p>
+                <h3>Cybersécurité</h3><p>Tests d'intrusion, analyse réseau forensique, sécurisation serveurs, audits de vulnérabilités.</p>
             </div>
             <div class="service-card reveal reveal-scale delay-5">
                 <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-                <h3>Marketing Digital</h3><p>Stratégie digitale, campagnes Facebook/Google/TikTok, SEO, community management, croissance de marque.</p>
+                <h3>Marketing Digital</h3><p>Stratégie digitale, campagnes sponsorisées, SEO, community management, croissance de marque.</p>
             </div>
             <div class="service-card reveal reveal-scale delay-6">
                 <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3>Formation IT</h3><p>Formations en développement web, cybersécurité, marketing digital et bureautique. Présentiel à Banfora et en ligne.</p>
+                <h3>Formation IT</h3><p>Développement web, cybersécurité, marketing digital, bureautique. Présentiel à Banfora et en ligne.</p>
             </div>
         </div>
     </div>
@@ -293,64 +293,74 @@
 <section class="realisations" id="realisations">
     <div class="container">
         <h2>Nos <span>Réalisations</span></h2>
-        <p style="text-align:center;max-width:700px;margin:0 auto 40px;color:var(--gray)">Des projets concrets en production, déployés sur O2Switch, utilisés par des clients réels au Burkina Faso et en Afrique.</p>
+        <p style="text-align:center;max-width:700px;margin:0 auto 40px;color:var(--gray)">Des projets concrets en production, déployés sur O2Switch, utilisés par des clients réels.</p>
         <div class="realisations-grid">
             <!-- CAVOR -->
             <div class="project-card reveal reveal-up delay-1">
                 <div class="project-img cavor"><i class="fas fa-coins"></i><span class="project-badge">Production</span></div>
                 <div class="project-body">
                     <h3>CAVOR — Or Digital</h3>
-                    <p class="project-desc">Plateforme d'investissement en or 24 carats. Achat/vente dès 0,05g. Paiement Mobile Money. KYC, portefeuille temps réel, PWA.</p>
-                    <div class="project-tech"><span>PHP 8.3</span><span>MySQL</span><span>PWA</span><span>Mistral AI</span><span>YengaPay</span><span>Chart.js</span></div>
+                    <p class="project-desc">Investissement en or 24 carats. Achat/vente dès 0,05g. Paiement Mobile Money. PWA, KYC, portefeuille temps réel.</p>
+                    <div class="project-tech"><span>PHP 8.3</span><span>MySQL</span><span>PWA</span><span>Mistral AI</span><span>YengaPay</span></div>
                     <div class="project-links"><a href="https://cav-or.com" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-external-link-alt"></i> cav-or.com</a></div>
                 </div>
             </div>
             <!-- Menu QR -->
             <div class="project-card reveal reveal-up delay-2">
-                <div class="project-img menuqr"><i class="fas fa-qrcode"></i><span class="project-badge">SaaS Premium</span></div>
+                <div class="project-img menuqr"><i class="fas fa-qrcode"></i><span class="project-badge">SaaS</span></div>
                 <div class="project-body">
                     <h3>Menu QR — Restaurants</h3>
-                    <p class="project-desc">SaaS de menus restaurant par QR code. Commandes en ligne, factures PDF, KDS cuisine, chatbot vocal, gestion stock, 18 000 lignes de code.</p>
-                    <div class="project-tech"><span>PHP 8.3</span><span>MySQL</span><span>PWA</span><span>Web Speech API</span><span>FPDF</span><span>Chart.js</span></div>
+                    <p class="project-desc">Menus restaurant par QR code. Commandes en ligne, factures PDF, KDS cuisine, chatbot vocal, stock, 18 000 lignes.</p>
+                    <div class="project-tech"><span>PHP 8.3</span><span>MySQL</span><span>PWA</span><span>Web Speech API</span><span>FPDF</span></div>
                     <div class="project-links"><a href="https://menusqr.online" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-external-link-alt"></i> menusqr.online</a></div>
                 </div>
             </div>
-            <!-- Faso24 -->
+            <!-- myvivo.online -->
             <div class="project-card reveal reveal-up delay-3">
-                <div class="project-img faso24"><i class="fas fa-newspaper"></i><span class="project-badge">Média IA</span></div>
+                <div class="project-img myvivo"><i class="fas fa-ticket-alt"></i><span class="project-badge">Laravel</span></div>
+                <div class="project-body">
+                    <h3>myvivo.online — Événementiel</h3>
+                    <p class="project-desc">Plateforme de vente de tickets d'événements, collecte de dons, campagnes de financement et formations en ligne.</p>
+                    <div class="project-tech"><span>Laravel</span><span>PHP 8</span><span>MySQL</span><span>REST API</span><span>Paiement Mobile</span></div>
+                    <div class="project-links"><a href="https://myvivo.online" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-external-link-alt"></i> myvivo.online</a></div>
+                </div>
+            </div>
+            <!-- Faso24 -->
+            <div class="project-card reveal reveal-up delay-4">
+                <div class="project-img faso24"><i class="fas fa-newspaper"></i><span class="project-badge">IA</span></div>
                 <div class="project-body">
                     <h3>Faso24.info — Actualité</h3>
-                    <p class="project-desc">Site d'actualité auto-alimenté par IA. Génération automatique d'articles, images Unsplash, cron O2Switch. Coût mensuel : 0 FCFA.</p>
+                    <p class="project-desc">Site d'actualité auto-alimenté par intelligence artificielle. Génération automatique, images Unsplash, coût 0 FCFA/mois.</p>
                     <div class="project-tech"><span>PHP 8</span><span>MySQL</span><span>Groq API</span><span>Unsplash API</span><span>Cron</span></div>
                     <div class="project-links"><a href="https://faso24.info" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-external-link-alt"></i> faso24.info</a></div>
                 </div>
             </div>
             <!-- AfricaBox TV -->
-            <div class="project-card reveal reveal-up delay-4">
-                <div class="project-img africabox"><i class="fas fa-tv"></i><span class="project-badge">App Android</span></div>
+            <div class="project-card reveal reveal-up delay-5">
+                <div class="project-img africabox"><i class="fas fa-tv"></i><span class="project-badge">Android</span></div>
                 <div class="project-body">
                     <h3>AfricaBox TV — Streaming</h3>
-                    <p class="project-desc">Application Android de streaming TV en direct. Lecteur HLS, grille de chaînes africaines, offres premium, paiement intégré.</p>
-                    <div class="project-tech"><span>HTML5</span><span>hls.js</span><span>WebView Android</span><span>Chariow</span></div>
+                    <p class="project-desc">Application Android de streaming TV. Lecteur HLS, grille de chaînes africaines, offres premium, paiement intégré.</p>
+                    <div class="project-tech"><span>HTML5</span><span>hls.js</span><span>WebView</span><span>Chariow</span></div>
                     <div class="project-links"><span class="btn btn-sm btn-outline" style="cursor:default"><i class="fab fa-android"></i> APK</span></div>
                 </div>
             </div>
             <!-- WariPay -->
-            <div class="project-card reveal reveal-up delay-5">
+            <div class="project-card reveal reveal-up delay-6">
                 <div class="project-img waripay"><i class="fas fa-exchange-alt"></i><span class="project-badge">Fintech</span></div>
                 <div class="project-body">
                     <h3>WariPay — Transfert</h3>
-                    <p class="project-desc">Solution de transfert d'argent mobile. Transactions sécurisées, multi-opérateurs, interface simple pour le marché africain.</p>
-                    <div class="project-tech"><span>PHP</span><span>MySQL</span><span>API Mobile Money</span><span>SSL/TLS</span></div>
+                    <p class="project-desc">Solution de transfert d'argent mobile. Transactions sécurisées, multi-opérateurs, interface adaptée au marché africain.</p>
+                    <div class="project-tech"><span>PHP</span><span>MySQL</span><span>API Mobile</span><span>SSL/TLS</span></div>
                     <div class="project-links"><span class="btn btn-sm btn-outline" style="cursor:default">En développement</span></div>
                 </div>
             </div>
             <!-- PCode -->
-            <div class="project-card reveal reveal-up delay-6">
+            <div class="project-card reveal reveal-up delay-7">
                 <div class="project-img pcode"><i class="fas fa-phone-alt"></i><span class="project-badge">Recharge</span></div>
                 <div class="project-body">
                     <h3>PCode — Recharge</h3>
-                    <p class="project-desc">Plateforme de recharge multi-opérateurs. Orange, Moov, Telecel. Crédit téléphonique instantané pour le Burkina Faso.</p>
+                    <p class="project-desc">Plateforme de recharge multi-opérateurs. Orange, Moov, Telecel. Crédit téléphonique instantané pour le Burkina.</p>
                     <div class="project-tech"><span>PHP</span><span>MySQL</span><span>API Opérateurs</span><span>SSL/TLS</span></div>
                     <div class="project-links"><span class="btn btn-sm btn-outline" style="cursor:default">En développement</span></div>
                 </div>
@@ -362,9 +372,10 @@
 <!-- TECH STACK -->
 <section class="tech-stack" id="tech">
     <div class="container">
-        <h2>Notre <span>Stack Technique</span></h2>
+        <h2>Notre <span>Stack</span> Technique</h2>
         <div class="tech-grid reveal reveal-scale">
             <div class="tech-item"><i class="fab fa-php"></i><div class="tech-name">PHP 8.3</div></div>
+            <div class="tech-item"><i class="fab fa-laravel"></i><div class="tech-name">Laravel</div></div>
             <div class="tech-item"><i class="fab fa-python"></i><div class="tech-name">Python 3.14</div></div>
             <div class="tech-item"><i class="fab fa-js"></i><div class="tech-name">JavaScript</div></div>
             <div class="tech-item"><i class="fas fa-database"></i><div class="tech-name">MySQL 8</div></div>
@@ -381,7 +392,6 @@
             <div class="tech-item"><i class="fas fa-network-wired"></i><div class="tech-name">Nmap</div></div>
             <div class="tech-item"><i class="fas fa-shield-alt"></i><div class="tech-name">Wireshark</div></div>
             <div class="tech-item"><i class="fas fa-fire"></i><div class="tech-name">Firebase</div></div>
-            <div class="tech-item"><i class="fas fa-cloud"></i><div class="tech-name">O2Switch</div></div>
         </div>
     </div>
 </section>
@@ -394,13 +404,13 @@
             <div class="team-card reveal reveal-up delay-1">
                 <div class="team-avatar">KS</div>
                 <h3>Kévin Sanou</h3><div class="team-role">Lead Dev & Fondateur</div>
-                <p>8+ ans d'expérience. Full-stack PHP/Python/JS. Expert en architecture logicielle, cybersécurité et IA.</p>
+                <p>8+ ans d'expérience. Full-stack PHP/Laravel/Python/JS. Expert en architecture, cybersécurité et IA.</p>
                 <div class="team-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-github"></i></a></div>
             </div>
             <div class="team-card reveal reveal-up delay-3">
                 <div class="team-avatar">TS</div>
                 <h3>Tenin Soma</h3><div class="team-role">Marketing Digital</div>
-                <p>Stratège digitale. Campagnes Facebook/Google/TikTok. Experte en acquisition et growth hacking.</p>
+                <p>Stratège digitale. Campagnes sponsorisées. Experte en acquisition et growth hacking.</p>
                 <div class="team-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
             </div>
             <div class="team-card reveal reveal-up delay-5">
@@ -425,10 +435,10 @@
         <h2>Contactez-<span>Nous</span></h2>
         <div class="contact-grid">
             <div class="contact-info reveal reveal-left">
-                <h3 style="margin-bottom:20px">Coordonnées</h3>
-                <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><strong>Adresse</strong><p style="margin:0">Secteur 15, Quartier Tatana<br>Banfora, Burkina Faso</p></div></div>
-                <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><strong>Téléphone</strong><p style="margin:0">+226 05 58 58 68<br><small>WhatsApp : +226 69 69 69 24</small></p></div></div>
-                <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><strong>Email</strong><p style="margin:0">nticsolution.bf@gmail.com</p></div></div>
+                <h3 style="margin-bottom:20px;color:var(--blue)">Coordonnées</h3>
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><strong style="color:var(--blue)">Adresse</strong><p style="margin:0">Secteur 15, Quartier Tatana<br>Banfora, Burkina Faso</p></div></div>
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><strong style="color:var(--blue)">Téléphone</strong><p style="margin:0">+226 05 58 58 68<br><small>WhatsApp : +226 69 69 69 24</small></p></div></div>
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><strong style="color:var(--blue)">Email</strong><p style="margin:0">nticsolution.bf@gmail.com</p></div></div>
                 <div class="social-links">
                     <a href="https://www.facebook.com/bfnticsolution" class="social-link"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/bfnticsolution" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -437,7 +447,7 @@
                 </div>
             </div>
             <div class="contact-form reveal reveal-right">
-                <h3 style="margin-bottom:20px">Demande de devis</h3>
+                <h3 style="margin-bottom:20px;color:var(--blue)">Demande de devis</h3>
                 <form id="contactForm">
                     <div class="form-group"><label>Nom complet *</label><input type="text" id="name" class="form-control" required></div>
                     <div class="form-group"><label>Email *</label><input type="email" id="email" class="form-control" required></div>
@@ -485,7 +495,7 @@
             </div>
             <div class="footer-links">
                 <h3>Projets</h3>
-                <ul><li><a href="https://cav-or.com" target="_blank">CAVOR</a></li><li><a href="https://menusqr.online" target="_blank">Menu QR</a></li><li><a href="https://faso24.info" target="_blank">Faso24</a></li><li><a href="#">AfricaBox TV</a></li><li><a href="#">WariPay</a></li><li><a href="#">PCode</a></li></ul>
+                <ul><li><a href="https://cav-or.com" target="_blank">CAVOR</a></li><li><a href="https://menusqr.online" target="_blank">Menu QR</a></li><li><a href="https://myvivo.online" target="_blank">myvivo.online</a></li><li><a href="https://faso24.info" target="_blank">Faso24</a></li><li><a href="#">AfricaBox TV</a></li><li><a href="#">WariPay</a></li><li><a href="#">PCode</a></li></ul>
             </div>
         </div>
         <div class="footer-bottom">&copy; 2026 NTIC Solution. Tous droits réservés. Banfora, Burkina Faso. | Fondateur : Kévin Kiessé Sanou</div>
@@ -493,18 +503,11 @@
 </footer>
 
 <script>
-// Reveal on scroll
 function revealOnScroll(){document.querySelectorAll('.reveal').forEach(el=>{const t=el.getBoundingClientRect().top;if(t<window.innerHeight-80)el.classList.add('visible')})}
 window.addEventListener('scroll',revealOnScroll);window.addEventListener('load',revealOnScroll);setTimeout(revealOnScroll,300);
-
-// Mobile menu
 document.getElementById('mobileMenuBtn').addEventListener('click',()=>{const n=document.getElementById('mainNav');n.classList.toggle('active');document.getElementById('mobileMenuBtn').innerHTML=n.classList.contains('active')?'<i class="fas fa-times"></i>':'<i class="fas fa-bars"></i>'});
 document.querySelectorAll('nav a').forEach(l=>l.addEventListener('click',()=>{document.getElementById('mainNav').classList.remove('active');document.getElementById('mobileMenuBtn').innerHTML='<i class="fas fa-bars"></i>'}));
-
-// Header scroll
 window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>80));
-
-// Contact form → WhatsApp
 document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();const n=document.getElementById('name').value.trim(),em=document.getElementById('email').value.trim(),p=document.getElementById('phone').value.trim(),s=document.getElementById('service').value,m=document.getElementById('message').value.trim();if(!n||!em||!p||!s||!m){alert('Veuillez remplir tous les champs.');return}const sv={web:'Développement Web',mobile:'Développement Mobile',ai:'Intelligence Artificielle',security:'Cybersécurité',marketing:'Marketing Digital',design:'Conception Graphique',training:'Formation IT'};window.open(`https://wa.me/22669696924?text=*Nouveau contact NTIC Solution*%0A%0A*Nom:* ${n}%0A*Email:* ${em}%0A*Tél:* ${p}%0A*Service:* ${sv[s]||s}%0A*Message:* ${m}`,'_blank')});
 </script>
 </body>
