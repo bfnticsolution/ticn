@@ -314,6 +314,24 @@
     <div class="marquee-content" id="marqueeContent"></div>
 </div>
 
+<!-- ==================== SECTION FORMATIONS AOÛT 2025 ==================== -->
+<section class="services" id="formations" aria-label="Formations août 2025" style="background:linear-gradient(180deg, var(--w) 0%, var(--gl) 100%);">
+    <div class="container">
+        <h2 style="margin-bottom:10px;">Formations <span>Août 2026</span></h2>
+        <p style="text-align:center;max-width:650px;margin:0 auto 12px;color:var(--g);font-size:.9rem">
+            Du 16 au 29 août au siège de NTIC Solution à Banfora. Wi-Fi offert, suivi personnalisé, attestation officielle.
+        </p>
+        <p style="text-align:center;margin-bottom:40px;">
+            <a href="https://myvivo.online/evenements/formations-bureautique-developpement-web-6a723ced3844c" 
+               target="_blank" rel="noopener" 
+               style="display:inline-flex;align-items:center;gap:6px;background:var(--o);color:#fff;padding:10px 22px;border-radius:50px;text-decoration:none;font-weight:600;font-size:.82rem;transition:var(--t);box-shadow:0 6px 20px rgba(255,107,53,.25)">
+               <i class="fas fa-ticket-alt"></i> Acheter vos tickets sur myvivo.online
+            </a>
+        </p>
+        <div class="services-grid" id="formationsGrid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));"></div>
+    </div>
+</section>
+<!-- ==================== FIN SECTION FORMATIONS ==================== -->
 <section class="services" id="services" aria-label="Nos services">
     <div class="container">
         <h2>Nos <span>Services</span></h2>
@@ -328,7 +346,6 @@
         <div class="realisations-grid" id="realisationsGrid"></div>
     </div>
 </section>
-
 <section class="tech-stack" id="tech" aria-label="Technologies maîtrisées">
     <div class="container">
         <h2>Notre <span>Arsenal</span> </h2>
@@ -448,6 +465,121 @@
 </footer>
 
 <script>
+    // ==================== FORMATIONS AOÛT 2025 ====================
+const formations = [
+    {
+        icon: 'fa-file-word',
+        titre: 'Bureautique',
+        sousTitre: 'Initiation & Maîtrise',
+        prix: '10 000 FCFA',
+        desc: 'Maîtrisez enfin Word, Excel et PowerPoint. Même si vous partez de zéro. Formateur dédié, exercices pratiques, attestation.',
+        avantages: ['Débutant accepté', 'Wi-Fi offert', 'Attestation officielle'],
+        couleur: '#0B3FA5',
+        messageWhatsApp: 'Bonjour NTIC Solution, je suis intéressé par la formation Bureautique à 10 000 FCFA du 16 au 29 août à Banfora. Pouvez-vous me donner plus d\'informations ?'
+    },
+    {
+        icon: 'fa-code',
+        titre: 'Développement Web',
+        sousTitre: 'Programmation & IA',
+        prix: '20 000 FCFA',
+        desc: 'Créez des sites et applications de A à Z. Intégrez l\'intelligence artificielle dans vos projets. De vos propres mains.',
+        avantages: ['Projets concrets', 'IA incluse', 'Attestation officielle'],
+        couleur: '#FF6B35',
+        messageWhatsApp: 'Bonjour NTIC Solution, je suis intéressé par la formation Développement Web & Programmation à 20 000 FCFA du 16 au 29 août à Banfora. Pouvez-vous me donner plus de détails ?'
+    },
+    {
+        icon: 'fa-star',
+        titre: 'Pack Complet',
+        sousTitre: 'Les deux formations',
+        prix: '25 000 FCFA',
+        ancienPrix: '30 000 FCFA',
+        desc: 'Combinez Bureautique ET Développement Web. Économisez 5 000 F. La formule la plus complète pour tout maîtriser.',
+        avantages: ['5 000 F d\'économie', 'Wi-Fi offert', 'Attestation complète'],
+        couleur: '#10B981',
+        badge: '🔥 Le plus populaire',
+        messageWhatsApp: 'Bonjour NTIC Solution, je suis intéressé par le Pack Complet (Bureautique + Développement Web) à 25 000 FCFA du 16 au 29 août à Banfora. Pouvez-vous me confirmer les disponibilités ?'
+    }
+];
+
+const formateurs = ['Kévin Sanou', 'Tenin Soma', 'Léon Sanou'];
+const statsFormation = { places: 15, inscrits: 8 };
+
+function renderFormations() {
+    const grid = document.getElementById('formationsGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = formations.map((f, i) => {
+        const placesRestantes = statsFormation.places - statsFormation.inscrits - (i * 2);
+        const urgence = placesRestantes <= 3 ? ' urgency' : '';
+        
+        return `
+        <div class="service-card reveal reveal-scale d${i + 1}" style="border-top: 4px solid ${f.couleur}; position: relative; animation: fadeInUp 0.6s ease ${i * 0.15}s both;">
+            <div class="card-glow"></div>
+            
+            ${f.badge ? `<span style="position:absolute;top:12px;right:12px;background:${f.couleur};color:#fff;padding:4px 12px;border-radius:20px;font-size:.62rem;font-weight:700;letter-spacing:.5px;animation: borderGlow 3s ease-in-out infinite">${f.badge}</span>` : ''}
+            
+            <div class="service-icon" style="background:${f.couleur}15; color:${f.couleur}; margin-bottom:16px;">
+                <i class="fas ${f.icon}"></i>
+            </div>
+            
+            <h3 style="font-size:1.15rem; margin-bottom:2px; color: var(--d);">${f.titre}</h3>
+            <p style="color:${f.couleur}; font-weight:600; font-size:.78rem; margin-bottom:12px; text-transform:uppercase; letter-spacing:1px;">${f.sousTitre}</p>
+            
+            <div style="margin-bottom:12px;">
+                <span style="font-size:2rem; font-weight:800; color:${f.couleur};">${f.prix}</span>
+                ${f.ancienPrix ? `<span style="text-decoration:line-through; color:var(--g); font-size:.78rem; margin-left:6px;">${f.ancienPrix}</span>` : ''}
+            </div>
+            
+            <p style="font-size:.8rem; color:var(--g); margin-bottom:14px; line-height:1.5;">${f.desc}</p>
+            
+            <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px;">
+                ${f.avantages.map(a => `<span style="background:${f.couleur}10; color:${f.couleur}; padding:4px 10px; border-radius:12px; font-size:.65rem; font-weight:600;"><i class="fas fa-check" style="font-size:.5rem; margin-right:3px;"></i>${a}</span>`).join('')}
+            </div>
+            
+            ${placesRestantes > 0 ? `<p style="font-size:.68rem; color:${placesRestantes <= 3 ? 'var(--o)' : 'var(--g)'}; margin-bottom:14px; display:flex; align-items:center; gap:6px;"><i class="fas fa-user-friends"></i> ${placesRestantes} place${placesRestantes > 1 ? 's' : ''} restante${placesRestantes > 1 ? 's' : ''}</p>` : '<p style="font-size:.68rem; color:var(--o); margin-bottom:14px;"><i class="fas fa-exclamation-circle"></i> Complet — liste d\'attente</p>'}
+            
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <a href="https://myvivo.online/evenements/formations-bureautique-developpement-web-6a723ced3844c" 
+                   target="_blank" rel="noopener"
+                   class="btn btn-sm" 
+                   style="background:${f.couleur}; flex:1; justify-content:center; min-width:120px; box-shadow:0 6px 20px ${f.couleur}30;">
+                   <i class="fas fa-ticket-alt"></i> Souscrire
+                </a>
+                <a href="https://wa.me/22669696924?text=${encodeURIComponent(f.messageWhatsApp)}" 
+                   target="_blank" rel="noopener"
+                   class="btn btn-sm btn-outline" 
+                   style="border-color:${f.couleur}; color:${f.couleur}; flex:1; justify-content:center; min-width:120px;">
+                   <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+// Rendu initial
+renderFormations();
+
+// Ajouter le lien dans la navigation
+const navUl = document.querySelector('nav ul');
+if (navUl) {
+    const li = document.createElement('li');
+    li.innerHTML = '<a href="#formations" title="Formations août 2025" style="color:var(--o); font-weight:700;">🎓 Formations</a>';
+    navUl.insertBefore(li, navUl.lastElementChild);
+}
+
+// Animation au scroll spécifique
+const formationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('#formationsGrid .service-card').forEach(card => {
+    formationObserver.observe(card);
+});
 (function(){
     'use strict';
     document.addEventListener('contextmenu', e => e.preventDefault());
