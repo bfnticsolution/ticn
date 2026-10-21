@@ -1,282 +1,644 @@
 <!DOCTYPE html>
 <html lang="fr-BF">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="NTIC Solution">
-    <meta name="theme-color" content="#0B3FA5">
-    <meta http-equiv="content-language" content="fr-BF">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0B3FA5">
+<meta name="author" content="NTIC Solution">
+<meta http-equiv="content-language" content="fr-BF">
 
-    <title>Vérification d'attestation — NTIC Solution</title>
-    <meta name="description" content="Vérifiez l'authenticité d'une attestation de formation délivrée par NTIC Solution, Banfora, Burkina Faso.">
+<title>Vérification d'attestation — NTIC Solution</title>
+<meta name="description" content="Vérifiez l'authenticité d'une attestation de formation délivrée par NTIC Solution, Banfora, Burkina Faso.">
 
-    <link rel="canonical" href="https://www.nticsolution.org/verifier/">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="canonical" href="https://www.nticsolution.org/verifier/">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.nticsolution.org/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.nticsolution.org/apple-touch-icon.png">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <style>
-        :root{--b:#0B3FA5;--bd:#072a6e;--bl:#e8f0fe;--o:#FF6B35;--od:#e55a2b;--ol:#fff3ee;--w:#fff;--d:#0F172A;--g:#64748B;--gl:#F1F5F9;--br:#E2E8F0;--s:0 1px 3px rgba(0,0,0,.04);--sl:0 20px 50px rgba(0,0,0,.08);--r:14px;--rl:20px;--t:0.35s cubic-bezier(0.4,0,0.2,1)}
-        *{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth;font-size:16px}
-        body{font-family:'Plus Jakarta Sans',sans-serif;line-height:1.6;color:var(--d);background:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-        .container{width:90%;max-width:1200px;margin:0 auto;padding:0 16px}
-        h1,h2,h3{font-weight:700;line-height:1.2}
-        h1{font-size:clamp(1.7rem,4vw,2.4rem);letter-spacing:-.5px;color:var(--b)}
-        h2{font-size:clamp(1.6rem,3.5vw,2.3rem);text-align:center;margin-bottom:50px;color:var(--b)}
-        h2 span{background:linear-gradient(135deg,var(--o),#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        h3{font-size:clamp(1.05rem,2vw,1.2rem);color:var(--b)}
-        p{color:var(--g);margin-bottom:12px;font-size:clamp(.88rem,1.5vw,.95rem)}
-        a{color:var(--b);text-decoration:none}
-        .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:var(--o);color:var(--w);border:none;border-radius:50px;font-weight:600;text-decoration:none;cursor:pointer;transition:var(--t);font-size:.9rem;white-space:nowrap;box-shadow:0 6px 20px rgba(255,107,53,.25);position:relative;overflow:hidden;font-family:inherit}
-        .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.2),transparent);opacity:0;transition:opacity .3s}
-        .btn:hover::after{opacity:1}
-        .btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,107,53,.35)}
-        .btn-outline{background:transparent;border:2px solid var(--o);color:var(--o);box-shadow:none}
-        .btn-outline:hover{background:var(--o);color:var(--w)}
-        .btn-white{background:var(--w);color:var(--b);box-shadow:0 6px 20px rgba(0,0,0,.1)}
-        .btn-sm{padding:8px 18px;font-size:.8rem;border-radius:30px}
+<style>
+:root{
+    --b:#0B3FA5;
+    --bd:#072a6e;
+    --bl:#e8f0fe;
+    --o:#FF6B35;
+    --od:#e55a2b;
+    --ol:#fff3ee;
+    --w:#fff;
+    --d:#0F172A;
+    --g:#64748B;
+    --gl:#F1F5F9;
+    --br:#E2E8F0;
+    --sl:0 20px 50px rgba(11,63,165,.10);
+    --r:14px;
+    --rl:20px;
+    --t:0.4s cubic-bezier(0.16,1,0.3,1);
+    --ease-out:cubic-bezier(0.16,1,0.3,1);
+}
 
-        /* ========== HEADER (identique à l'accueil) ========== */
-        header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:12px 0;transition:var(--t);border-bottom:1px solid rgba(11,63,165,.08)}
-        header.scrolled{padding:8px 0;background:rgba(255,255,255,.95);box-shadow:0 4px 30px rgba(0,0,0,.06)}
-        .header-container{display:flex;justify-content:space-between;align-items:center}
-        .header-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-        .header-logo img{height:42px}
-        .header-logo-text{font-size:1.1rem;font-weight:700;color:var(--b);line-height:1.1}
-        .header-logo-slogan{font-size:.7rem;color:var(--o);font-weight:600;letter-spacing:2px;text-transform:uppercase}
-        nav ul{display:flex;list-style:none;gap:24px;align-items:center}
-        nav ul li a{text-decoration:none;color:var(--b);font-weight:500;font-size:.88rem;transition:color .2s;position:relative}
-        nav ul li a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--o);transition:width .3s}
-        nav ul li a:hover::after{width:100%}
-        nav ul li a:hover{color:var(--o)}
-        .mobile-menu-btn{display:none;background:none;border:none;font-size:1.5rem;color:var(--b);cursor:pointer;padding:8px}
-        @media(max-width:900px){.mobile-menu-btn{display:block}nav{position:fixed;top:60px;left:-100%;width:100%;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);padding:20px;transition:left .3s;z-index:999;box-shadow:0 10px 30px rgba(0,0,0,.1);border-bottom:1px solid var(--br)}nav.active{left:0}nav ul{flex-direction:column;gap:0}nav ul li a{display:block;padding:14px 0;font-size:1rem;border-bottom:1px solid var(--br)}}
+*{margin:0;padding:0;box-sizing:border-box}
 
-        /* ========== SECTION VÉRIFICATION ========== */
-        .verify-section{padding:140px 0 100px;background:linear-gradient(180deg,var(--w) 0%,var(--gl) 100%);min-height:100vh;display:flex;align-items:center;position:relative}
-        .verify-wrap{max-width:640px;margin:0 auto;width:100%}
-        .verify-header{text-align:center;margin-bottom:40px}
-        .verify-header h1{margin-bottom:12px}
-        .verify-header p{max-width:520px;margin:0 auto;font-size:.95rem}
+html{
+    scroll-behavior:smooth;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+}
 
-        .verify-card{background:var(--w);border-radius:var(--rl);padding:44px 36px;box-shadow:var(--sl);border:1px solid var(--br);position:relative;overflow:hidden}
-        .verify-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--o),var(--b))}
+body{
+    font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+    line-height:1.6;
+    color:var(--d);
+    background:#f7f9fc;
+    min-height:100vh;
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:32px 20px;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    position:relative;
+}
 
-        /* États */
-        .state{display:none}
-        .state.active{display:block;animation:fadeInUp .5s ease}
-        @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+/* Fond décoratif : dégradé radial + grille, très subtils, animés lentement */
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(255,107,53,.08) 0%,transparent 45%),
+        radial-gradient(circle at 85% 80%,rgba(11,63,165,.08) 0%,transparent 45%);
+    pointer-events:none;
+    z-index:0;
+    animation:bgShift 20s ease-in-out infinite;
+}
 
-        /* Chargement */
-        .loader-wrap{display:flex;flex-direction:column;align-items:center;padding:36px 0;gap:18px;text-align:center}
-        .spinner{width:44px;height:44px;border:3px solid var(--bl);border-top-color:var(--o);border-radius:50%;animation:spin .8s linear infinite}
-        @keyframes spin{to{transform:rotate(360deg)}}
-        .loader-text{font-size:.88rem;color:var(--g);margin:0}
+body::after{
+    content:'';
+    position:fixed;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(11,63,165,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(11,63,165,.025) 1px,transparent 1px);
+    background-size:48px 48px;
+    pointer-events:none;
+    z-index:0;
+    mask-image:radial-gradient(ellipse at center,black 0%,transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse at center,black 0%,transparent 75%);
+}
 
-        /* Bloc statut */
-        .status-block{text-align:center;padding:8px 0 24px}
-        .status-icon{width:76px;height:76px;border-radius:50%;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;font-size:1.9rem}
-        .status-icon.valid{background:var(--bl);color:var(--b);box-shadow:0 0 0 8px rgba(11,63,165,.06)}
-        .status-icon.invalid{background:var(--ol);color:var(--o);box-shadow:0 0 0 8px rgba(255,107,53,.08)}
-        .status-icon.neutral{background:var(--gl);color:var(--g);box-shadow:0 0 0 8px rgba(100,116,139,.06)}
-        .status-title{font-size:1.3rem;font-weight:700;color:var(--b);margin-bottom:8px;line-height:1.3}
-        .status-desc{font-size:.9rem;color:var(--g);margin-bottom:0;max-width:440px;margin-left:auto;margin-right:auto}
+@keyframes bgShift{
+    0%,100%{transform:scale(1) rotate(0deg)}
+    50%{transform:scale(1.1) rotate(2deg)}
+}
 
-        /* Détails */
-        .details{background:var(--gl);border-radius:var(--r);padding:6px 22px;margin-top:24px;border:1px solid var(--br)}
-        .detail-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;font-size:.88rem}
-        .detail-row + .detail-row{border-top:1px solid var(--br)}
-        .detail-label{color:var(--g);flex-shrink:0;font-weight:500}
-        .detail-value{color:var(--d);font-weight:600;text-align:right;word-break:break-word}
-        .detail-value.mono{font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.82rem;letter-spacing:-.01em;color:var(--b)}
+/* Conteneur principal */
+.page{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:560px;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+}
 
-        /* Badge statut en haut */
-        .status-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:50px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px}
-        .status-badge.valid{background:var(--bl);color:var(--b)}
-        .status-badge.invalid{background:var(--ol);color:var(--o)}
-        .status-badge .dot{width:7px;height:7px;border-radius:50%;background:currentColor;animation:cursorBlink 1.5s ease-in-out infinite}
-        @keyframes cursorBlink{0%,100%{opacity:1}50%{opacity:.3}}
+/* Marque discrète en haut */
+.brand{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    opacity:0;
+    animation:brandFade .7s var(--ease-out) .05s forwards;
+}
 
-        /* Footer actions */
-        .verify-footer{margin-top:28px;padding-top:24px;border-top:1px solid var(--br);text-align:center}
-        .verify-footer p{font-size:.78rem;color:var(--g);margin-bottom:14px}
-        .verify-footer .btn{font-size:.82rem;padding:10px 22px}
+.brand-mark{
+    width:32px;
+    height:32px;
+    border-radius:9px;
+    background:linear-gradient(135deg,var(--b),var(--bd));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 12px rgba(11,63,165,.2);
+}
 
-        /* Aide en bas */
-        .verify-help{text-align:center;margin-top:32px;font-size:.82rem;color:var(--g)}
-        .verify-help a{color:var(--b);font-weight:600;border-bottom:1px solid transparent;transition:border-color .2s}
-        .verify-help a:hover{border-bottom-color:var(--b)}
+.brand-mark svg{
+    width:16px;
+    height:16px;
+    stroke:#fff;
+    fill:none;
+    stroke-width:2.5;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
 
-        /* ========== FOOTER (identique à l'accueil, version condensée) ========== */
-        footer{background:var(--d);color:var(--w);padding:40px 0 20px;margin-top:80px}
-        .footer-inner{text-align:center}
-        .footer-brand{font-size:1.05rem;font-weight:700;margin-bottom:6px}
-        .footer-brand span{color:var(--o)}
-        .footer-text{color:rgba(255,255,255,.5);font-size:.82rem;margin-bottom:18px}
-        .footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:18px}
-        .footer-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.82rem;transition:color .2s}
-        .footer-links a:hover{color:var(--o)}
-        .footer-bottom{padding-top:16px;border-top:1px solid rgba(255,255,255,.06);font-size:.75rem;color:rgba(255,255,255,.4)}
+.brand-name{
+    font-size:.95rem;
+    font-weight:700;
+    color:var(--b);
+    letter-spacing:-.01em;
+}
 
-        @media(max-width:768px){
-            .verify-section{padding:120px 0 60px}
-            .verify-card{padding:32px 22px}
-            .detail-row{flex-direction:column;gap:4px;align-items:flex-start}
-            .detail-value{text-align:left}
-            .status-icon{width:64px;height:64px;font-size:1.6rem}
-        }
-    </style>
+.brand-name span{
+    color:var(--o);
+}
+
+@keyframes brandFade{
+    to{opacity:1}
+}
+
+/* Carte */
+.card{
+    background:var(--w);
+    border-radius:var(--rl);
+    padding:48px 40px;
+    box-shadow:var(--sl);
+    border:1px solid rgba(11,63,165,.06);
+    position:relative;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(24px);
+    animation:cardIn .8s var(--ease-out) .15s forwards;
+}
+
+@keyframes cardIn{
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* Barre dégradée en haut */
+.card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:4px;
+    background:linear-gradient(90deg,var(--o),var(--b));
+    border-radius:var(--rl) var(--rl) 0 0;
+}
+
+/* Titre */
+.title{
+    text-align:center;
+    margin-bottom:8px;
+    font-size:clamp(1.35rem,3.5vw,1.6rem);
+    font-weight:700;
+    color:var(--b);
+    letter-spacing:-.02em;
+    line-height:1.25;
+}
+
+.title-accent{
+    background:linear-gradient(135deg,var(--o),#F59E0B);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+}
+
+.subtitle{
+    text-align:center;
+    font-size:.88rem;
+    color:var(--g);
+    margin-bottom:36px;
+    max-width:420px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* États */
+.state{
+    display:none;
+}
+
+.state.active{
+    display:block;
+    animation:stateIn .5s var(--ease-out);
+}
+
+@keyframes stateIn{
+    from{opacity:0;transform:translateY(10px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* Chargement */
+.loader-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:24px 0;
+    gap:20px;
+}
+
+.spinner{
+    width:44px;
+    height:44px;
+    border:3px solid var(--bl);
+    border-top-color:var(--o);
+    border-radius:50%;
+    animation:spin .9s linear infinite;
+}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.loader-text{
+    font-size:.85rem;
+    color:var(--g);
+    font-weight:500;
+}
+
+/* Bloc statut */
+.status-block{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.status-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:6px 14px;
+    border-radius:50px;
+    font-size:.7rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    margin-bottom:20px;
+}
+
+.status-badge.valid{
+    background:var(--bl);
+    color:var(--b);
+}
+
+.status-badge.invalid{
+    background:var(--ol);
+    color:var(--o);
+}
+
+.status-badge .dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:currentColor;
+    animation:dotPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes dotPulse{
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:.4;transform:scale(.85)}
+}
+
+.status-icon{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    margin:0 auto 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+    animation:iconPop .6s var(--ease-out) .1s both;
+}
+
+@keyframes iconPop{
+    0%{transform:scale(0);opacity:0}
+    60%{transform:scale(1.08)}
+    100%{transform:scale(1);opacity:1}
+}
+
+.status-icon.valid{
+    background:var(--bl);
+    color:var(--b);
+    box-shadow:0 0 0 10px rgba(11,63,165,.05),0 8px 24px rgba(11,63,165,.12);
+}
+
+.status-icon.invalid{
+    background:var(--ol);
+    color:var(--o);
+    box-shadow:0 0 0 10px rgba(255,107,53,.06),0 8px 24px rgba(255,107,53,.14);
+}
+
+.status-icon.neutral{
+    background:var(--gl);
+    color:var(--g);
+    box-shadow:0 0 0 10px rgba(100,116,139,.05),0 8px 24px rgba(100,116,139,.1);
+}
+
+.status-title{
+    font-size:1.2rem;
+    font-weight:700;
+    color:var(--d);
+    margin-bottom:8px;
+    letter-spacing:-.01em;
+}
+
+.status-desc{
+    font-size:.88rem;
+    color:var(--g);
+    max-width:400px;
+    margin:0 auto;
+    line-height:1.55;
+}
+
+/* Détails */
+.details{
+    background:#f8fafc;
+    border:1px solid var(--br);
+    border-radius:var(--r);
+    padding:6px 20px;
+    margin-bottom:24px;
+}
+
+.detail-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    padding:14px 0;
+    font-size:.86rem;
+    opacity:0;
+    transform:translateX(-8px);
+    animation:rowIn .4s var(--ease-out) forwards;
+}
+
+.detail-row:nth-child(1){animation-delay:.25s}
+.detail-row:nth-child(2){animation-delay:.32s}
+.detail-row:nth-child(3){animation-delay:.39s}
+.detail-row:nth-child(4){animation-delay:.46s}
+.detail-row:nth-child(5){animation-delay:.53s}
+.detail-row:nth-child(6){animation-delay:.60s}
+
+@keyframes rowIn{
+    to{opacity:1;transform:translateX(0)}
+}
+
+.detail-row + .detail-row{
+    border-top:1px solid var(--br);
+}
+
+.detail-label{
+    color:var(--g);
+    font-weight:500;
+    flex-shrink:0;
+}
+
+.detail-value{
+    color:var(--d);
+    font-weight:600;
+    text-align:right;
+    word-break:break-word;
+}
+
+.detail-value.mono{
+    font-family:'SF Mono',Menlo,Consolas,monospace;
+    font-size:.78rem;
+    color:var(--b);
+    letter-spacing:-.01em;
+    background:var(--bl);
+    padding:2px 8px;
+    border-radius:6px;
+}
+
+/* Bouton d'action */
+.action{
+    display:flex;
+    justify-content:center;
+    margin-top:8px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:13px 26px;
+    background:var(--o);
+    color:var(--w);
+    border:none;
+    border-radius:50px;
+    font-weight:600;
+    font-size:.88rem;
+    font-family:inherit;
+    text-decoration:none;
+    cursor:pointer;
+    transition:var(--t);
+    box-shadow:0 6px 20px rgba(255,107,53,.25);
+    position:relative;
+    overflow:hidden;
+    min-height:44px;
+}
+
+.btn::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(255,255,255,.2),transparent);
+    opacity:0;
+    transition:opacity .3s;
+}
+
+.btn:hover::after{opacity:1}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,107,53,.35)}
+.btn:active{transform:translateY(0)}
+
+.btn-outline{
+    background:transparent;
+    color:var(--b);
+    border:2px solid var(--b);
+    box-shadow:none;
+}
+
+.btn-outline:hover{
+    background:var(--b);
+    color:var(--w);
+    box-shadow:0 8px 24px rgba(11,63,165,.25);
+}
+
+/* Mention légale fine en bas */
+.legal{
+    text-align:center;
+    font-size:.75rem;
+    color:var(--g);
+    opacity:0;
+    animation:brandFade .7s var(--ease-out) 1s forwards;
+    line-height:1.6;
+}
+
+.legal a{
+    color:var(--b);
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:border-color .2s;
+}
+
+.legal a:hover{
+    border-bottom-color:var(--b);
+}
+
+/* Responsive mobile */
+@media (max-width:640px){
+    body{padding:20px 16px}
+
+    .page{gap:20px}
+
+    .card{
+        padding:36px 24px;
+        border-radius:16px;
+    }
+
+    .title{font-size:1.25rem}
+
+    .subtitle{font-size:.82rem;margin-bottom:28px}
+
+    .status-icon{width:68px;height:68px;font-size:1.7rem}
+
+    .status-title{font-size:1.1rem}
+
+    .detail-row{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:4px;
+    }
+
+    .detail-value{text-align:left}
+
+    .btn{width:100%;max-width:280px}
+}
+
+/* Accessibilité : réduire les animations */
+@media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+        animation-duration:0.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:0.01ms !important;
+    }
+    body::before{animation:none}
+}
+
+/* Focus visible pour accessibilité clavier */
+a:focus-visible,
+button:focus-visible{
+    outline:2px solid var(--o);
+    outline-offset:3px;
+    border-radius:6px;
+}
+</style>
 </head>
 <body>
 
-<!-- ==================== HEADER (identique à l'accueil) ==================== -->
-<header id="header">
-    <div class="container header-container">
-        <a href="https://www.nticsolution.org/#top" class="header-logo" title="NTIC Solution - Retour à l'accueil">
-            <img src="https://www.nticsolution.org/logo.png" alt="NTIC Solution">
-            <div>
-                <div class="header-logo-text">NTIC Solution</div>
-                <div class="header-logo-slogan">L'UNIVERS DU DIGITAL</div>
-            </div>
-        </a>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu navigation"><i class="fas fa-bars"></i></button>
-        <nav id="mainNav" aria-label="Navigation principale">
-            <ul>
-                <li><a href="https://www.nticsolution.org/#top">Accueil</a></li>
-                <li><a href="https://www.nticsolution.org/#services">Services</a></li>
-                <li><a href="https://www.nticsolution.org/#realisations">Réalisations</a></li>
-                <li><a href="https://www.nticsolution.org/#contact" class="btn btn-sm">Devis Gratuit</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+<main class="page" role="main">
 
-<!-- ==================== SECTION VÉRIFICATION ==================== -->
-<main class="verify-section" role="main">
-    <div class="container">
-        <div class="verify-wrap">
-            <div class="verify-header">
-                <h1>Vérification <span style="background:linear-gradient(135deg,var(--o),#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent">d'attestation</span></h1>
-                <p>Confirmez en un instant l'authenticité d'une attestation de formation délivrée par NTIC Solution.</p>
-            </div>
-
-            <div class="verify-card">
-                <!-- État : chargement -->
-                <section class="state" id="state-loading" aria-live="polite">
-                    <div class="loader-wrap">
-                        <div class="spinner" role="status" aria-label="Chargement"></div>
-                        <p class="loader-text">Vérification en cours</p>
-                    </div>
-                </section>
-
-                <!-- État : aucun identifiant -->
-                <section class="state" id="state-empty" aria-live="polite">
-                    <div class="status-block">
-                        <div class="status-icon neutral" aria-hidden="true"><i class="fas fa-qrcode"></i></div>
-                        <h2 class="status-title" style="font-size:1.3rem;text-align:center;margin-bottom:8px">Aucun identifiant fourni</h2>
-                        <p class="status-desc">Scannez le QR code présent sur l'attestation pour lancer la vérification.</p>
-                    </div>
-                    <div class="verify-footer">
-                        <p>Vous avez un doute sur une attestation ?</p>
-                        <a href="https://wa.me/22669696924?text=Bonjour%20NTIC%20Solution%2C%20je%20souhaite%20v%C3%A9rifier%20une%20attestation." class="btn btn-outline" target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp"></i> Contacter NTIC Solution
-                        </a>
-                    </div>
-                </section>
-
-                <!-- État : attestation valide -->
-                <section class="state" id="state-valid" aria-live="polite">
-                    <div class="status-block">
-                        <div class="status-badge valid"><span class="dot"></span> Authentique</div>
-                        <div class="status-icon valid" aria-hidden="true"><i class="fas fa-check"></i></div>
-                        <h2 class="status-title" style="font-size:1.3rem;text-align:center;margin-bottom:8px">Attestation valide</h2>
-                        <p class="status-desc">Cette attestation a bien été délivrée par NTIC Solution.</p>
-                    </div>
-                    <div class="details" id="valid-details"></div>
-                </section>
-
-                <!-- État : attestation invalide/introuvable -->
-                <section class="state" id="state-invalid" aria-live="polite">
-                    <div class="status-block">
-                        <div class="status-badge invalid"><span class="dot"></span> Non valide</div>
-                        <div class="status-icon invalid" aria-hidden="true"><i class="fas fa-times"></i></div>
-                        <h2 class="status-title" id="invalid-title" style="font-size:1.3rem;text-align:center;margin-bottom:8px">Attestation introuvable</h2>
-                        <p class="status-desc" id="invalid-desc">Aucune attestation ne correspond à cet identifiant.</p>
-                    </div>
-                    <div class="details" id="invalid-details"></div>
-                    <div class="verify-footer">
-                        <p>Pensez-vous qu'il s'agit d'une erreur ?</p>
-                        <a href="https://wa.me/22669696924?text=Bonjour%20NTIC%20Solution%2C%20je%20pense%20qu%27il%20y%20a%20une%20erreur%20sur%20une%20attestation." class="btn btn-outline" target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp"></i> Signaler un problème
-                        </a>
-                    </div>
-                </section>
-
-                <!-- État : erreur réseau -->
-                <section class="state" id="state-error" aria-live="polite">
-                    <div class="status-block">
-                        <div class="status-icon invalid" aria-hidden="true"><i class="fas fa-exclamation-triangle"></i></div>
-                        <h2 class="status-title" style="font-size:1.3rem;text-align:center;margin-bottom:8px">Vérification impossible</h2>
-                        <p class="status-desc">Le service est momentanément indisponible. Réessayez dans quelques instants.</p>
-                    </div>
-                    <div class="verify-footer">
-                        <a href="javascript:location.reload()" class="btn">
-                            <i class="fas fa-redo"></i> Réessayer
-                        </a>
-                    </div>
-                </section>
-            </div>
-
-            <p class="verify-help">
-                Une question ? Écrivez-nous à <a href="mailto:nticsolution.bf@gmail.com">nticsolution.bf@gmail.com</a>
-            </p>
+    <!-- Marque discrète -->
+    <div class="brand" aria-label="NTIC Solution">
+        <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 6L9 17l-5-5"/>
+            </svg>
         </div>
+        <div class="brand-name">NTIC <span>Solution</span></div>
     </div>
+
+    <!-- Carte de vérification -->
+    <section class="card" aria-live="polite">
+
+        <h1 class="title">Vérification <span class="title-accent">d'attestation</span></h1>
+        <p class="subtitle">Confirmez l'authenticité d'une attestation de formation délivrée par NTIC Solution.</p>
+
+        <!-- État : chargement -->
+        <div class="state" id="state-loading">
+            <div class="loader-wrap">
+                <div class="spinner" role="status" aria-label="Chargement"></div>
+                <p class="loader-text">Vérification en cours</p>
+            </div>
+        </div>
+
+        <!-- État : aucun identifiant -->
+        <div class="state" id="state-empty">
+            <div class="status-block">
+                <div class="status-icon neutral" aria-hidden="true">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <h2 class="status-title">Aucun identifiant fourni</h2>
+                <p class="status-desc">Scannez le QR code présent sur l'attestation pour lancer la vérification.</p>
+            </div>
+            <div class="action">
+                <a href="https://wa.me/22669696924?text=Bonjour%20NTIC%20Solution%2C%20je%20souhaite%20v%C3%A9rifier%20une%20attestation." class="btn btn-outline" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp"></i> Nous contacter
+                </a>
+            </div>
+        </div>
+
+        <!-- État : valide -->
+        <div class="state" id="state-valid">
+            <div class="status-block">
+                <div class="status-badge valid"><span class="dot"></span> Authentique</div>
+                <div class="status-icon valid" aria-hidden="true">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h2 class="status-title">Attestation valide</h2>
+                <p class="status-desc">Cette attestation a bien été délivrée par NTIC Solution.</p>
+            </div>
+            <div class="details" id="valid-details"></div>
+        </div>
+
+        <!-- État : invalide -->
+        <div class="state" id="state-invalid">
+            <div class="status-block">
+                <div class="status-badge invalid"><span class="dot"></span> Non valide</div>
+                <div class="status-icon invalid" aria-hidden="true">
+                    <i class="fas fa-times"></i>
+                </div>
+                <h2 class="status-title" id="invalid-title">Attestation introuvable</h2>
+                <p class="status-desc" id="invalid-desc">Aucune attestation ne correspond à cet identifiant.</p>
+            </div>
+            <div class="details" id="invalid-details"></div>
+            <div class="action">
+                <a href="https://wa.me/22669696924?text=Bonjour%20NTIC%20Solution%2C%20je%20pense%20qu%27il%20y%20a%20une%20erreur%20sur%20une%20attestation." class="btn btn-outline" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp"></i> Signaler un problème
+                </a>
+            </div>
+        </div>
+
+        <!-- État : erreur -->
+        <div class="state" id="state-error">
+            <div class="status-block">
+                <div class="status-icon invalid" aria-hidden="true">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h2 class="status-title">Vérification impossible</h2>
+                <p class="status-desc">Le service est momentanément indisponible. Réessayez dans quelques instants.</p>
+            </div>
+            <div class="action">
+                <button type="button" class="btn" onclick="location.reload()">
+                    <i class="fas fa-redo"></i> Réessayer
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Mention légale -->
+    <p class="legal">
+        Page officielle de vérification — <a href="https://www.nticsolution.org" target="_blank" rel="noopener">nticsolution.org</a><br>
+        &copy; 2026 NTIC Solution, Banfora, Burkina Faso
+    </p>
+
 </main>
-
-<!-- ==================== FOOTER (identique à l'accueil, condensé) ==================== -->
-<footer role="contentinfo">
-    <div class="container footer-inner">
-        <div class="footer-brand">NTIC <span>Solution</span></div>
-        <p class="footer-text">L'univers du digital — Banfora, Burkina Faso</p>
-        <div class="footer-links">
-            <a href="https://www.nticsolution.org/">Accueil</a>
-            <a href="https://www.nticsolution.org/#services">Services</a>
-            <a href="https://www.nticsolution.org/#realisations">Réalisations</a>
-            <a href="https://www.nticsolution.org/#contact">Contact</a>
-            <a href="https://wa.me/22669696924" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-        <div class="footer-bottom">&copy; 2026 NTIC Solution. Tous droits réservés. | Fondateur : Kévin Kiessé Sanou | +226 69 69 69 24</div>
-    </div>
-</footer>
 
 <script>
 (function () {
     'use strict';
 
-    // ========== MENU MOBILE (identique à l'accueil) ==========
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const mainNav = document.getElementById('mainNav');
-    if (mobileBtn && mainNav) {
-        mobileBtn.addEventListener('click', function () {
-            mainNav.classList.toggle('active');
-            mobileBtn.innerHTML = mainNav.classList.contains('active')
-                ? '<i class="fas fa-times"></i>'
-                : '<i class="fas fa-bars"></i>';
-        });
-    }
-
-    // Header scroll
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', function () {
-        if (header) header.classList.toggle('scrolled', window.scrollY > 80);
-    });
-
-    // ========== VÉRIFICATION D'ATTESTATION ==========
+    // ========== GESTION DES ÉTATS ==========
     const states = {
         loading: document.getElementById('state-loading'),
         empty:   document.getElementById('state-empty'),
@@ -292,7 +654,7 @@
         if (states[name]) states[name].classList.add('active');
     }
 
-    // Échappement HTML
+    // ========== UTILITAIRES ==========
     function esc(value) {
         if (value === null || value === undefined) return '';
         return String(value)
@@ -303,17 +665,17 @@
             .replace(/'/g, '&#39;');
     }
 
-    // Formatage date
     function formatDate(iso) {
         if (!iso) return '—';
         const d = new Date(iso + 'T00:00:00');
         if (isNaN(d.getTime())) return iso;
         return d.toLocaleDateString('fr-FR', {
-            day: 'numeric', month: 'long', year: 'numeric'
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
         });
     }
 
-    // Bloc de détails
     function buildDetails(rows) {
         return rows.map(function (row) {
             const monoClass = row.mono ? ' mono' : '';
@@ -324,7 +686,6 @@
         }).join('');
     }
 
-    // Normalisation de l'ID
     function normalizeId(raw) {
         if (!raw) return '';
         try {
@@ -334,7 +695,7 @@
         }
     }
 
-    // Récupération de l'ID
+    // ========== RÉCUPÉRATION DE L'ID ==========
     const params = new URLSearchParams(window.location.search);
     const attestationId = normalizeId(params.get('id'));
 
@@ -345,7 +706,7 @@
 
     show('loading');
 
-    // Chargement du JSON
+    // ========== CHARGEMENT DU JSON ==========
     fetch('attestations.json', { cache: 'no-cache' })
         .then(function (response) {
             if (!response.ok) throw new Error('HTTP ' + response.status);
